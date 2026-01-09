@@ -1,0 +1,11 @@
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Common\bin\Debug\net9.0\JapaneseFood.Common.deps.json
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Common\bin\Debug\net9.0\JapaneseFood.Common.dll
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Common\bin\Debug\net9.0\JapaneseFood.Common.pdb
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Common\obj\Debug\net9.0\JapaneseFood.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Common\obj\Debug\net9.0\JapaneseFood.Common.AssemblyInfoInputs.cache
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Common\obj\Debug\net9.0\JapaneseFood.Common.AssemblyInfo.cs
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Common\obj\Debug\net9.0\JapaneseFood.Common.csproj.CoreCompileInputs.cache
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Common\obj\Debug\net9.0\JapaneseFood.Common.dll
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Common\obj\Debug\net9.0\refint\JapaneseFood.Common.dll
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Common\obj\Debug\net9.0\JapaneseFood.Common.pdb
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Common\obj\Debug\net9.0\ref\JapaneseFood.Common.dll

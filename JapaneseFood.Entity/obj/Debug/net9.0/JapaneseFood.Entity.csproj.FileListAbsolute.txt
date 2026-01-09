@@ -1,0 +1,14 @@
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Entity\bin\Debug\net9.0\JapaneseFood.Entity.deps.json
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Entity\bin\Debug\net9.0\JapaneseFood.Entity.runtimeconfig.json
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Entity\bin\Debug\net9.0\JapaneseFood.Entity.dll
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Entity\bin\Debug\net9.0\JapaneseFood.Entity.pdb
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Entity\obj\Debug\net9.0\JapaneseFood.Entity.csproj.AssemblyReference.cache
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Entity\obj\Debug\net9.0\JapaneseFood.Entity.GeneratedMSBuildEditorConfig.editorconfig
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Entity\obj\Debug\net9.0\JapaneseFood.Entity.AssemblyInfoInputs.cache
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Entity\obj\Debug\net9.0\JapaneseFood.Entity.AssemblyInfo.cs
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Entity\obj\Debug\net9.0\JapaneseFood.Entity.csproj.CoreCompileInputs.cache
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Entity\obj\Debug\net9.0\JapaneseFood.Entity.dll
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Entity\obj\Debug\net9.0\refint\JapaneseFood.Entity.dll
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Entity\obj\Debug\net9.0\JapaneseFood.Entity.pdb
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Entity\obj\Debug\net9.0\JapaneseFood.Entity.genruntimeconfig.cache
+D:\Do_An\vqt_japanese_food_web\JapaneseFood.Entity\obj\Debug\net9.0\ref\JapaneseFood.Entity.dll
