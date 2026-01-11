@@ -8,9 +8,10 @@
 
   <ItemGroup>
     <Folder Include="Banner\" />
-    <Folder Include="Image\" />
-    <Folder Include="Order\" />
-    <Folder Include="Product\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.3.9" />
   </ItemGroup>
 
 </Project>

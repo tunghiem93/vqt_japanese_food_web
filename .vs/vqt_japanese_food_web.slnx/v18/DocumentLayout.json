@@ -1,0 +1,186 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{43170578-EBAA-1F62-340E-04AE7FCB407C}|vqt_japanese_food_web\\vqt_japanese_food_web.csproj|d:\\study\\doan-2026\\greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{43170578-EBAA-1F62-340E-04AE7FCB407C}|vqt_japanese_food_web\\vqt_japanese_food_web.csproj|solutionrelative:vqt_japanese_food_web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43170578-EBAA-1F62-340E-04AE7FCB407C}|vqt_japanese_food_web\\vqt_japanese_food_web.csproj|d:\\study\\doan-2026\\greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\views\\about\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{43170578-EBAA-1F62-340E-04AE7FCB407C}|vqt_japanese_food_web\\vqt_japanese_food_web.csproj|solutionrelative:vqt_japanese_food_web\\views\\about\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43170578-EBAA-1F62-340E-04AE7FCB407C}|vqt_japanese_food_web\\vqt_japanese_food_web.csproj|d:\\study\\doan-2026\\greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\views\\contact\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{43170578-EBAA-1F62-340E-04AE7FCB407C}|vqt_japanese_food_web\\vqt_japanese_food_web.csproj|solutionrelative:vqt_japanese_food_web\\views\\contact\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43170578-EBAA-1F62-340E-04AE7FCB407C}|vqt_japanese_food_web\\vqt_japanese_food_web.csproj|d:\\study\\doan-2026\\greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{43170578-EBAA-1F62-340E-04AE7FCB407C}|vqt_japanese_food_web\\vqt_japanese_food_web.csproj|solutionrelative:vqt_japanese_food_web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43170578-EBAA-1F62-340E-04AE7FCB407C}|vqt_japanese_food_web\\vqt_japanese_food_web.csproj|d:\\study\\doan-2026\\greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{43170578-EBAA-1F62-340E-04AE7FCB407C}|vqt_japanese_food_web\\vqt_japanese_food_web.csproj|solutionrelative:vqt_japanese_food_web\\areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43170578-EBAA-1F62-340E-04AE7FCB407C}|vqt_japanese_food_web\\vqt_japanese_food_web.csproj|d:\\study\\doan-2026\\greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\areas\\admin\\views\\catalogmng\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{43170578-EBAA-1F62-340E-04AE7FCB407C}|vqt_japanese_food_web\\vqt_japanese_food_web.csproj|solutionrelative:vqt_japanese_food_web\\areas\\admin\\views\\catalogmng\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43170578-EBAA-1F62-340E-04AE7FCB407C}|vqt_japanese_food_web\\vqt_japanese_food_web.csproj|d:\\study\\doan-2026\\greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\areas\\admin\\controllers\\catalogmngcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43170578-EBAA-1F62-340E-04AE7FCB407C}|vqt_japanese_food_web\\vqt_japanese_food_web.csproj|solutionrelative:vqt_japanese_food_web\\areas\\admin\\controllers\\catalogmngcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43170578-EBAA-1F62-340E-04AE7FCB407C}|vqt_japanese_food_web\\vqt_japanese_food_web.csproj|d:\\study\\doan-2026\\greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\areas\\admin\\views\\discountmng\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{43170578-EBAA-1F62-340E-04AE7FCB407C}|vqt_japanese_food_web\\vqt_japanese_food_web.csproj|solutionrelative:vqt_japanese_food_web\\areas\\admin\\views\\discountmng\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43170578-EBAA-1F62-340E-04AE7FCB407C}|vqt_japanese_food_web\\vqt_japanese_food_web.csproj|d:\\study\\doan-2026\\greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\areas\\admin\\views\\discountmng\\_form.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{43170578-EBAA-1F62-340E-04AE7FCB407C}|vqt_japanese_food_web\\vqt_japanese_food_web.csproj|solutionrelative:vqt_japanese_food_web\\areas\\admin\\views\\discountmng\\_form.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43170578-EBAA-1F62-340E-04AE7FCB407C}|vqt_japanese_food_web\\vqt_japanese_food_web.csproj|d:\\study\\doan-2026\\greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\areas\\admin\\controllers\\productmngcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43170578-EBAA-1F62-340E-04AE7FCB407C}|vqt_japanese_food_web\\vqt_japanese_food_web.csproj|solutionrelative:vqt_japanese_food_web\\areas\\admin\\controllers\\productmngcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "vqt_japanese_food_web\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "vqt_japanese_food_web\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAOoAAAAAAAAAAAAAAO4AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-11T08:27:57.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\Views\\Contact\\Index.cshtml",
+              "RelativeDocumentMoniker": "vqt_japanese_food_web\\Views\\Contact\\Index.cshtml",
+              "ToolTip": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\Views\\Contact\\Index.cshtml",
+              "RelativeToolTip": "vqt_japanese_food_web\\Views\\Contact\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-11T08:25:07.233Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\Views\\About\\Index.cshtml",
+              "RelativeDocumentMoniker": "vqt_japanese_food_web\\Views\\About\\Index.cshtml",
+              "ToolTip": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\Views\\About\\Index.cshtml",
+              "RelativeToolTip": "vqt_japanese_food_web\\Views\\About\\Index.cshtml",
+              "ViewState": "AgIAAIgAAAAAAAAAAAAAAEwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-11T08:24:49.274Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "vqt_japanese_food_web\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "vqt_japanese_food_web\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJoAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-11T08:23:43.978Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "vqt_japanese_food_web\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "vqt_japanese_food_web\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAHwBAAAAAAAAAAAAAIQBAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-11T07:34:57.744Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\Areas\\Admin\\Views\\CatalogMng\\Index.cshtml",
+              "RelativeDocumentMoniker": "vqt_japanese_food_web\\Areas\\Admin\\Views\\CatalogMng\\Index.cshtml",
+              "ToolTip": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\Areas\\Admin\\Views\\CatalogMng\\Index.cshtml",
+              "RelativeToolTip": "vqt_japanese_food_web\\Areas\\Admin\\Views\\CatalogMng\\Index.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAwwCMAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-11T07:29:48.572Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CatalogMngController.cs",
+              "DocumentMoniker": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\Areas\\Admin\\Controllers\\CatalogMngController.cs",
+              "RelativeDocumentMoniker": "vqt_japanese_food_web\\Areas\\Admin\\Controllers\\CatalogMngController.cs",
+              "ToolTip": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\Areas\\Admin\\Controllers\\CatalogMngController.cs",
+              "RelativeToolTip": "vqt_japanese_food_web\\Areas\\Admin\\Controllers\\CatalogMngController.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAuwBoAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-11T07:29:13.915Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\Areas\\Admin\\Views\\DiscountMng\\Index.cshtml",
+              "RelativeDocumentMoniker": "vqt_japanese_food_web\\Areas\\Admin\\Views\\DiscountMng\\Index.cshtml",
+              "ToolTip": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\Areas\\Admin\\Views\\DiscountMng\\Index.cshtml",
+              "RelativeToolTip": "vqt_japanese_food_web\\Areas\\Admin\\Views\\DiscountMng\\Index.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-11T07:27:31.005Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "_Form.cshtml",
+              "DocumentMoniker": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\Areas\\Admin\\Views\\DiscountMng\\_Form.cshtml",
+              "RelativeDocumentMoniker": "vqt_japanese_food_web\\Areas\\Admin\\Views\\DiscountMng\\_Form.cshtml",
+              "ToolTip": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\Areas\\Admin\\Views\\DiscountMng\\_Form.cshtml",
+              "RelativeToolTip": "vqt_japanese_food_web\\Areas\\Admin\\Views\\DiscountMng\\_Form.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAABwAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-11T07:26:42.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ProductMngController.cs",
+              "DocumentMoniker": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\Areas\\Admin\\Controllers\\ProductMngController.cs",
+              "RelativeDocumentMoniker": "vqt_japanese_food_web\\Areas\\Admin\\Controllers\\ProductMngController.cs",
+              "ToolTip": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\Areas\\Admin\\Controllers\\ProductMngController.cs",
+              "RelativeToolTip": "vqt_japanese_food_web\\Areas\\Admin\\Controllers\\ProductMngController.cs",
+              "ViewState": "AgIAAOMAAAAAAAAAAAAAAOwAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-11T07:14:45.569Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

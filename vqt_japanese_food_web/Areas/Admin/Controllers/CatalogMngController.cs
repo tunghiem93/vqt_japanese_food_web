@@ -24,11 +24,11 @@ namespace vqt_japanese_food_web.Areas.Admin.Controllers
             {
                 Id = s.Id,
                 Name = s.Name,
+                IsActive = s.IsActive,
+                IsDelete = s.IsDelete,
                 CreatedAt = s.CreatedAt,
                 CreatedBy = s.CreatedBy,
-                UpdatedAt = s.UpdatedAt,
-                UpdatedBy = s.UpdatedBy
-            }).ToListAsync();
+            }).OrderBy(o => o.CreatedAt).ToListAsync();
             return View(model);
         }
 
@@ -83,9 +83,7 @@ namespace vqt_japanese_food_web.Areas.Admin.Controllers
             {
                 entity.Id = model.Id;
                 entity.Name = model.Name;
-                entity.CreatedAt = model.CreatedAt;
-                entity.CreatedBy = model.CreatedBy;
-                entity.UpdatedAt = model.UpdatedAt;
+                entity.UpdatedAt = DateTime.Now;
                 entity.UpdatedBy = model.UpdatedBy;
             }
 

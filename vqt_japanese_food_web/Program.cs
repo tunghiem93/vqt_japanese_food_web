@@ -31,7 +31,8 @@ builder.Services.AddDbContextPool<DataContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("VQTConnections"),
         sql => sql.MigrationsAssembly("JapaneseFood.Entity")
-    )
+    ),
+    poolSize: 64
 );
 
 // ---- HttpContextAccessor ----

@@ -10,6 +10,7 @@ namespace JapaneseFood.Entity.Order
     [Table("OrderDetail")]
     public class OrderDetailEntities
     {
+        public long Id { get; set; }
         public long OrderId { get; set; }
         public long ProductId { get; set; }
         public int Quantity { get; set; }

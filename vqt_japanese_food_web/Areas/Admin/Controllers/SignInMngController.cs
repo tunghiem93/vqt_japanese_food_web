@@ -34,7 +34,8 @@ namespace vqt_japanese_food_web.Areas.Admin.Controllers
                 Id = s.Id,
                 FullName = s.FullName,
                 UserName = s.UserName,
-                RoleId = s.RoleId
+                RoleId = s.RoleId,
+                Avatar = s.Avatar
             }).FirstOrDefault();
             if (User != null)
             {

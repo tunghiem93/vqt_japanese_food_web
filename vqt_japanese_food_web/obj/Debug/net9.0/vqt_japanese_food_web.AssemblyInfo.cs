@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("vqt_japanese_food_web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cbf3cca60b8d11760098e2951ba4c084497610d6")]
 [assembly: System.Reflection.AssemblyProductAttribute("vqt_japanese_food_web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("vqt_japanese_food_web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

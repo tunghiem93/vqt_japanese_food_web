@@ -1,6 +1,7 @@
 ﻿using JapaneseFood.Entity.Article;
 using JapaneseFood.Entity.Banner;
 using JapaneseFood.Entity.Category;
+using JapaneseFood.Entity.Discount;
 using JapaneseFood.Entity.Image;
 using JapaneseFood.Entity.Order;
 using JapaneseFood.Entity.Product;
@@ -42,7 +43,7 @@ namespace JapaneseFood.Entity
                 .HasData(
                    new UserEntities
                    {
-                       CreatedAt = DateTime.Now,
+                       CreatedAt = new DateTime(2024, 01, 01),
                        FullName = "admin",
                        Id = 1,
                        Password = "123",
@@ -51,8 +52,13 @@ namespace JapaneseFood.Entity
                        IsActive = true
                    }
             );
+            modelBuilder.Entity<ProductEntities>()
+                .HasMany(p => p.Images)
+                .WithOne(i => i.Product)
+                .HasForeignKey(i => i.ProductId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
-        public virtual DbSet<CategoryEntities> Category { get; set; }
+        public virtual DbSet<CategoryEntities> Categorys { get; set; }
         public virtual DbSet<BannerEntities> Banners { get; set; }
         public virtual DbSet<CatalogEntities> Catalogs { get; set; }
         public virtual DbSet<UserEntities> Users { get; set; }
@@ -62,5 +68,6 @@ namespace JapaneseFood.Entity
         public virtual DbSet<ImageEntities> Images { get; set; }
         public virtual DbSet<OrderEntities> Orders { get; set; }
         public virtual DbSet<OrderDetailEntities> OrderDetails { get; set; }
+        public virtual DbSet<DiscountEntities> Discounts { get; set; }
     }
 }

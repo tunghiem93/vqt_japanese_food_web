@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using JapaneseFood.Entity.Category;
+using JapaneseFood.Entity.Image;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JapaneseFood.Entity.Product
 {
@@ -12,6 +9,7 @@ namespace JapaneseFood.Entity.Product
     {
         public long CategoryId { get; set; }       
         public required string Name { get; set; }
+        public required string Code { get; set; }
         public string? ShortDescription { get; set; }
         public string? Description { get; set; }
         public decimal Price { get; set; }            
@@ -24,5 +22,9 @@ namespace JapaneseFood.Entity.Product
         public int Rating { get; set; }
         public int ReviewCount { get; set; }
         public bool IsAvailable { get; set; }
+        public int? DiscountId { get; set; }
+        public CategoryEntities Category { get; set; } = null!;
+        public ICollection<ImageEntities> Images { get; set; }
+            = new List<ImageEntities>();
     }
 }

@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using JapaneseFood.Entity;
-using JapaneseFood.Entity.Article;
-using JapaneseFood.Model.Catalog;
+using JapaneseFood.Entity.Category;
+using JapaneseFood.Model.Category;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace vqt_japanese_food_web.Areas.Admin.Controllers
@@ -20,33 +20,37 @@ namespace vqt_japanese_food_web.Areas.Admin.Controllers
         }
         public async Task<ActionResult> Index()
         {
-            var model = await _context.Catalogs.Where(w => !w.IsDelete).Select(s => new CatalogDto()
+            var model = await _context.Categorys.Where(w => !w.IsDelete).Select(s => new CategoryDto()
             {
                 Id = s.Id,
                 Name = s.Name,
-                CreatedAt = s.CreatedAt,
+                CatalogId = s.CatalogId,
+                CatalogName = s.Catalog.Name,
+                IsActive = s.IsActive,
+                IsDelete = s.IsDelete,
+                CreatedAt = DateTime.Now,
                 CreatedBy = s.CreatedBy,
-                UpdatedAt = s.UpdatedAt,
-                UpdatedBy = s.UpdatedBy
-            }).ToListAsync();
+            }).OrderBy(o => o.CreatedAt).ToListAsync();
             return View(model);
         }
 
         public ActionResult New()
         {
-            var model = new CatalogDto();
+            var model = new CategoryDto();
+            Set_Data_Dropdown(ref model);
             return View(model);
         }
 
         [HttpPost]
-        public async Task<ActionResult> New(CatalogDto model)
+        public async Task<ActionResult> New(CategoryDto model)
         {
             if (!ModelState.IsValid)
             {
+                Set_Data_Dropdown(ref model);
                 return View(model);
             }
-            var usersEntities = _mapper.Map<CatalogDto, CatalogEntities>(model);
-            _context.Catalogs.Add(usersEntities);
+            var usersEntities = _mapper.Map<CategoryDto, CategoryEntities>(model);
+            _context.Categorys.Add(usersEntities);
             var result = await _context.SaveChangesAsync() > 0;
             if (result)
             {
@@ -55,6 +59,7 @@ namespace vqt_japanese_food_web.Areas.Admin.Controllers
             }
             else
             {
+                Set_Data_Dropdown(ref model);
                 TempData["IntervalServer"] = "Create failed";
             }
             return View(model);
@@ -62,30 +67,31 @@ namespace vqt_japanese_food_web.Areas.Admin.Controllers
 
         public async Task<ActionResult> Edit(long Id)
         {
-            var entity = await _context.Catalogs.Where(w => w.Id == Id).FirstOrDefaultAsync();
+            var entity = await _context.Categorys.Where(w => w.Id == Id).FirstOrDefaultAsync();
             if (entity == null)
             {
-                return View(new CatalogDto());
+                return View(new CategoryDto());
             }
-            var model = _mapper.Map<CatalogEntities, CatalogDto>(entity);
+            var model = _mapper.Map<CategoryEntities, CategoryDto>(entity);
+            Set_Data_Dropdown(ref model);
             return View(model);
         }
 
         [HttpPost]
-        public async Task<ActionResult> Edit(CatalogDto model)
+        public async Task<ActionResult> Edit(CategoryDto model)
         {
             if (!ModelState.IsValid)
             {
+                Set_Data_Dropdown(ref model);
                 return View(model);
             }
-            var entity = await _context.Catalogs.Where(w => w.Id == model.Id).FirstOrDefaultAsync();
+            var entity = await _context.Categorys.Where(w => w.Id == model.Id).FirstOrDefaultAsync();
             if (entity != null)
             {
                 entity.Id = model.Id;
                 entity.Name = model.Name;
-                entity.CreatedAt = model.CreatedAt;
-                entity.CreatedBy = model.CreatedBy;
-                entity.UpdatedAt = model.UpdatedAt;
+                entity.CatalogId = model.CatalogId;
+                entity.UpdatedAt = DateTime.Now;
                 entity.UpdatedBy = model.UpdatedBy;
             }
 
@@ -97,6 +103,7 @@ namespace vqt_japanese_food_web.Areas.Admin.Controllers
             }
             else
             {
+                Set_Data_Dropdown(ref model);
                 TempData["IntervalServer"] = "Update failed";
             }
             return View(model);
@@ -111,6 +118,19 @@ namespace vqt_japanese_food_web.Areas.Admin.Controllers
                 var result = await _context.SaveChangesAsync() > 0;
             }
             return RedirectToAction("Index");
+        }
+
+        private void Set_Data_Dropdown(ref CategoryDto model)
+        {
+            var data = _context.Catalogs.Where(w => !w.IsDelete).ToList();
+            if (data != null)
+            {
+                model.Catalogs = data.Select(x => new SelectListItem
+                {
+                    Value = x.Id.ToString(),
+                    Text = x.Name
+                }).ToList();
+            }
         }
     }
 }

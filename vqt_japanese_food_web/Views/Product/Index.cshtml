@@ -1,0 +1,844 @@
+﻿@model HuyHoangDATN.Models.Product.ProductCollectionsViewDTO
+@{
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+}
+@Html.HiddenFor(model => model.CollectionsType, new { @id = "collection-type" })
+@Html.HiddenFor(model => model.CollectionsAlias, new { @id = "collection-alias" })
+<div>
+    <main class="">
+        <div id="collection" class="collection-page">
+            <div class="main-content clearfix">
+                <div class="breadcrumb-shop">
+                    <div class="padding-lf-40 clearfix">
+                        <div class=" ">
+                            <ol class="breadcrumb breadcrumb-arrows clearfix">
+                                <li><a href="/" target="_self"><i class="fa fa-home"></i> Trang chủ</a></li>
+                                <li><a href="javascript:void(0)" target="_self">Danh mục</a></li>
+                                <li class="active"><span>@Model.Collections</span></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="banner-collection-header">
+                </div>
+                <div class="padding-lf-40 clearfix">
+                    <div id="collection-body" class="wrap-collection-body clearfix">
+                        <div class="wrap-collection-title clearfix">
+                            <div class="heading-collection clearfix">
+                                <div class="col-md-8 col-sm-12 col-xs-12">
+                                    <h1 class="title">
+                                        @Model.Collections
+                                    </h1>
+                                    <div class="append-search visible-xs"></div>
+                                    <div class="filter-custom hidden-sm hidden-xs removeMobile">
+                                        <span>BỘ LỌC</span>
+                                        <div class="groupFilterNew">
+                                            <div class="titleFilter clearfix">
+                                                <div class="layered_subtitle dropdown-filter">
+                                                    <span>Màu sắc</span>
+                                                    <span class="icon-control">
+                                                        <i class="fa fa-sort-down"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="layered_subtitle dropdown-filter eachTagFilter">
+                                                    <span>Kích cỡ</span>
+                                                    <span class="icon-control">
+                                                        <i class="fa fa-sort-down"></i>
+                                                    </span>
+                                                    <div class="hide">
+                                                        <input data-check="34" />
+                                                        <input data-check="35" />
+                                                        <input data-check="36" />
+                                                        <input data-check="37" />
+                                                        <input data-check="38" />
+                                                        <input data-check="39" />
+                                                    </div>
+                                                </div>
+                                                @*<div class="layered_subtitle dropdown-filter eachTagFilter">
+                                                        <span>Độ cao</span>
+                                                        <span class="icon-control">
+                                                            <i class="fa fa-sort-down"></i>
+                                                        </span>
+                                                        <div class="hide">
+                                                            <input data-check="bet" />
+                                                            <input data-check="3cm" />
+                                                            <input data-check="5cm" />
+                                                            <input data-check="7cm" />
+                                                            <input data-check="9cm" />
+                                                            <input data-check="11cm" />
+                                                        </div>
+                                                    </div>*@
+                                                @*<div class="layered_subtitle dropdown-filter eachTagFilter">
+                                                        <span>Kiểu gót</span>
+                                                        <span class="icon-control">
+                                                            <i class="fa fa-sort-down"></i>
+                                                        </span>
+                                                        <div class="hide">
+                                                            <input data-check="got-vuong" />
+                                                            <input data-check="got-nhon" />
+                                                            <input data-check="de-xuong" />
+                                                        </div>
+                                                    </div>*@
+                                                @*<div class="layered_subtitle dropdown-filter eachTagFilter">
+                                                        <span>Kiểu mũi</span>
+                                                        <span class="icon-control">
+                                                            <i class="fa fa-sort-down"></i>
+                                                        </span>
+                                                        <div class="hide">
+                                                            <input data-check="mui-tron" />
+                                                            <input data-check="mui-nhon" />
+                                                        </div>
+                                                    </div>*@
+                                            </div>
+                                            <div class="contentFilter clearfix">
+                                                <div class="filter-color s-filter">
+                                                    @if (Model.Colors != null && Model.Colors.Any())
+                                                    {
+                                                        <ul class="check-box-list">
+                                                            @foreach (var color in Model.Colors)
+                                                            {
+                                                                <li>
+                                                                    <input data-check="@color.Code" data-url="@color.Code" type="checkbox" id="color_@color.Code" value="@color.Name" name="color-filter" data-color="(variant:product**@color.Name)" />
+                                                                    <label title="@color.Name" style="background-color: @color.HexCode" for="color_@color.Code">
+                                                                        <span class="button"></span>
+                                                                    </label>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    }
+
+                                                </div>
+                                                <div class="filter-size s-filter eachTagFilter">
+                                                    @if (Model.Sizes != null && Model.Sizes.Any())
+                                                    {
+                                                        <ul class="check-box-list clearfix">
+                                                            @foreach (var size in Model.Sizes)
+                                                            {
+                                                                <li>
+                                                                    <input data-check="@size.Code" data-url="@size.Code" type="checkbox" id="data-size-@size.Code" value="@size.Code" name="size-filter" data-size="(variant:product**@size.Code)" />
+                                                                    <label for="data-size-@size.Code">
+                                                                        <span class="button"></span>
+                                                                        @size.Code
+                                                                    </label>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    }
+
+                                                </div>
+                                                @*<div class="filter-height s-filter eachTagFilter">
+                                                        <ul class="check-box-list clearfix">
+                                                            <li>
+                                                                <input data-check="bet" data-url="bet" type="checkbox" id="data-height-p1" value="Bệt" name="height-filter" data-height="(tag:product=docao:1cm)||(tag:product=xang-dan-bet)" />
+                                                                <label for="data-height-p1">
+                                                                    <span class="button"></span>
+                                                                    Bệt
+                                                                </label>
+                                                            </li>
+                                                            <li>
+                                                                <input data-check="3cm" data-url="3cm" type="checkbox" id="data-height-p2" value="3cm" name="height-filter" data-height="(tag:product=docao:3cm)" />
+                                                                <label for="data-height-p2">
+                                                                    <span class="button"></span>
+                                                                    3cm
+                                                                </label>
+                                                            </li>
+                                                            <li>
+                                                                <input data-check="5cm" data-url="5cm" type="checkbox" id="data-height-p3" value="5cm" name="height-filter" data-height="(tag:product=docao:5cm)" />
+                                                                <label for="data-height-p3">
+                                                                    <span class="button"></span>
+                                                                    5cm
+                                                                </label>
+                                                            </li>
+                                                            <li>
+                                                                <input data-check="7cm" data-url="7cm" type="checkbox" id="data-height-p4" value="7cm" name="height-filter" data-height="(tag:product=docao:7cm)" />
+                                                                <label for="data-height-p4">
+                                                                    <span class="button"></span>
+                                                                    7cm
+                                                                </label>
+                                                            </li>
+                                                            <li>
+                                                                <input data-check="9cm" data-url="9cm" type="checkbox" id="data-height-p5" value="9cm" name="height-filter" data-height="(tag:product=docao:9cm)" />
+                                                                <label for="data-height-p5">
+                                                                    <span class="button"></span>
+                                                                    9cm
+                                                                </label>
+                                                            </li>
+                                                            <li>
+                                                                <input data-check="11cm" data-url="11cm" type="checkbox" id="data-height-p6" value="11cm" name="height-filter" data-height="(tag:product=docao:11cm)" />
+                                                                <label for="data-height-p6">
+                                                                    <span class="button"></span>
+                                                                    11cm
+                                                                </label>
+                                                            </li>
+                                                        </ul>
+                                                    </div>*@
+                                                @*<div class="filter-style s-filter eachTagFilter">
+                                                        <ul class="check-box-list clearfix">
+                                                            <li>
+                                                                <input data-check="got-vuong" data-url="got-vuong" type="checkbox" id="data-style-p1" value="Gót vuông" name="style-filter" data-style="(tag:product**got-vuong)" />
+                                                                <label for="data-style-p1">
+                                                                    <span class="button"></span>
+                                                                    Gót vuông
+                                                                </label>
+                                                            </li>
+                                                            <li>
+                                                                <input data-check="got-nhon" data-url="got-nhon" type="checkbox" id="data-style-p2" value="Gót nhọn" name="style-filter" data-style="(tag:product**got-nhon)" />
+                                                                <label for="data-style-p2">
+                                                                    <span class="button"></span>
+                                                                    Gót nhọn
+                                                                </label>
+                                                            </li>
+                                                            <li>
+                                                                <input data-check="de-xuong" data-url="de-xuong" type="checkbox" id="data-style-p3" value="Đế xuồng" name="style-filter" data-style="(tag:product**de-xuong)" />
+                                                                <label for="data-style-p3">
+                                                                    <span class="button"></span>
+                                                                    Đế xuồng
+                                                                </label>
+                                                            </li>
+                                                        </ul>
+                                                    </div>*@
+                                                @*<div class="filter-nose s-filter eachTagFilter">
+                                                        <ul class="check-box-list clearfix">
+                                                            <li>
+                                                                <input data-check="mui-tron" data-url="mui-tron" type="checkbox" id="data-nose-p1" value="Mũi tròn" name="nose-filter" data-nose="(tag:product**mui-tron)" />
+                                                                <label for="data-nose-p1">
+                                                                    <span class="button"></span>
+                                                                    Mũi tròn
+                                                                </label>
+                                                            </li>
+                                                            <li>
+                                                                <input data-check="mui-nhon" data-url="mui-nhon" type="checkbox" id="data-nose-p2" value="Mũi nhọn" name="nose-filter" data-nose="(tag:product**mui-nhon)" />
+                                                                <label for="data-nose-p2">
+                                                                    <span class="button"></span>
+                                                                    Mũi nhọn
+                                                                </label>
+                                                            </li>
+                                                        </ul>
+                                                    </div>*@
+                                            </div>
+                                        </div>
+                                        <div class="append-search"></div>
+                                        <div class="append-url hide"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-12 col-xs-12">
+                                    <div class="outerSort">
+                                        <div class="borderFilterMobile visbile-xs visible-sm filterSmallScreen">
+                                            <a class="filterClick">
+                                                <i class="fa fa-filter"></i>
+                                                <span class="visible-xs">Bộ lọc</span>
+                                            </a>
+                                        </div>
+                                        <div class="borderFilterMobile option browse-tags">
+                                            <label class="lb-filter" for="sort-by">Sắp xếp theo:</label>
+                                            <span class="custom-dropdown custom-dropdown--grey">
+                                                <span class="visible-xs btnSortMobile">
+                                                    <i class="fa fa-sort"></i>
+                                                </span>
+                                                <select class="sort-by custom-dropdown__select">
+                                                    <option value="0">Mới nhất</option>
+                                                    <option value="1">Giá: Tăng dần</option>
+                                                    <option value="2">Giá: Giảm dần</option>
+
+                                                    @*<option value="best-selling" data-filter="&sortby=(sold_quantity:product=desc)">Bán chạy nhất</option>*@
+                                                </select>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-data-product">
+                            @Html.Partial("_ListItem", Model)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebarFilter">
+            <div class="innerSidebarFilter">
+                <div class="filter-custom removeDesktop">
+                    <div class="filterTitle">BỘ LỌC</div>
+                    <div class="group-filter" aria-expanded="true">
+                        <div class="layered_subtitle dropdown-filter">
+                            <span>Màu sắc</span>
+                        </div>
+                        <div class="filter-color s-filter">
+                            @if (Model.Colors != null && Model.Colors.Any())
+                            {
+                                <ul class="check-box-list">
+                                    @foreach (var color in Model.Colors)
+                                    {
+                                        <li>
+                                            <input data-check="@color.Code" data-url="@color.Code" type="checkbox" id="color_@color.Code" value="@color.Name" name="color-filter" data-color="(variant:product**@color.Name)" />
+                                            <label style="background-color: @color.HexCode" for="color_@color.Code">
+                                                <span class="button"></span>
+                                            </label>
+                                        </li>
+                                    }
+                                </ul>
+                            }
+
+                        </div>
+                    </div>
+
+                    <div class="group-filter eachTagFilter" aria-expanded="true">
+                        <div class="layered_subtitle dropdown-filter">
+                            <span>Kích cỡ</span>
+                        </div>
+                        <div class="styleLiMobile filter-size s-filter">
+                            @if (Model.Sizes != null && Model.Sizes.Any())
+                            {
+                                <ul class="check-box-list clearfix">
+                                    @foreach (var size in Model.Sizes)
+                                    {
+                                        <li>
+                                            <input data-check="@size.Code" data-url="@size.Code" type="checkbox" id="data-size-@size.Code" value="@size.Code" name="size-filter" data-size="(variant:product**@size.Code)" />
+                                            <label for="data-size-@size.Code">
+                                                <span class="button"></span>
+                                                @size.Code
+                                            </label>
+                                        </li>
+                                    }
+                                </ul>
+                            }
+
+                        </div>
+                    </div>
+
+                    @*<div class="group-filter eachTagFilter" aria-expanded="true">
+                            <div class="layered_subtitle dropdown-filter">
+                                <span>Độ cao</span>
+                            </div>
+                            <div class="styleLiMobile filter-height s-filter">
+                                <ul class="check-box-list clearfix">
+                                    <li>
+                                        <input data-check="bet" data-url="bet" type="checkbox" id="data-height-p1" value="Bệt" name="height-filter" data-height="(tag:product=docao:1cm)||(tag:product=xang-dan-bet)" />
+                                        <label for="data-height-p1">
+                                            <span class="button"></span>
+                                            Bệt
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input data-check="3cm" data-url="3cm" type="checkbox" id="data-height-p2" value="3cm" name="height-filter" data-height="(tag:product=docao:3cm)" />
+                                        <label for="data-height-p2">
+                                            <span class="button"></span>
+                                            3cm
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input data-check="5cm" data-url="5cm" type="checkbox" id="data-height-p3" value="5cm" name="height-filter" data-height="(tag:product=docao:5cm)" />
+                                        <label for="data-height-p3">
+                                            <span class="button"></span>
+                                            5cm
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input data-check="7cm" data-url="7cm" type="checkbox" id="data-height-p4" value="7cm" name="height-filter" data-height="(tag:product=docao:7cm)" />
+                                        <label for="data-height-p4">
+                                            <span class="button"></span>
+                                            7cm
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input data-check="9cm" data-url="9cm" type="checkbox" id="data-height-p5" value="9cm" name="height-filter" data-height="(tag:product=docao:9cm)" />
+                                        <label for="data-height-p5">
+                                            <span class="button"></span>
+                                            9cm
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input data-check="11cm" data-url="11cm" type="checkbox" id="data-height-p6" value="11cm" name="height-filter" data-height="(tag:product=docao:11cm)" />
+                                        <label for="data-height-p6">
+                                            <span class="button"></span>
+                                            11cm
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="group-filter eachTagFilter" aria-expanded="true">
+                            <div class="layered_subtitle dropdown-filter">
+                                <span>Kiểu gót</span>
+                            </div>
+                            <div class="styleLiMobile filter-style s-filter">
+                                <ul class="check-box-list clearfix">
+                                    <li>
+                                        <input data-check="got-vuong" data-url="got-vuong" type="checkbox" id="data-style-p1" value="Gót vuông" name="style-filter" data-style="(tag:product**got-vuong)" />
+                                        <label for="data-style-p1">
+                                            <span class="button"></span>
+                                            Gót vuông
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input data-check="got-nhon" data-url="got-nhon" type="checkbox" id="data-style-p2" value="Gót nhọn" name="style-filter" data-style="(tag:product**got-nhon)" />
+                                        <label for="data-style-p2">
+                                            <span class="button"></span>
+                                            Gót nhọn
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input data-check="de-xuong" data-url="de-xuong" type="checkbox" id="data-style-p3" value="Đế xuồng" name="style-filter" data-style="(tag:product**de-xuong)" />
+                                        <label for="data-style-p3">
+                                            <span class="button"></span>
+                                            Đế xuồng
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="group-filter eachTagFilter" aria-expanded="true">
+                            <div class="layered_subtitle dropdown-filter">
+                                <span>Kiểu mũi</span>
+                            </div>
+                            <div class="styleLiMobile filter-event s-filter">
+                                <ul class="check-box-list clearfix">
+                                    <li>
+                                        <input data-check="mui-tron" data-url="mui-tron" type="checkbox" id="data-nose-p1" value="Mũi tròn" name="nose-filter" data-event="(tag:product**mui-tron)" />
+                                        <label for="data-nose-p1">
+                                            <span class="button"></span>
+                                            Mũi tròn
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input data-check="mui-nhon" data-url="mui-nhon" type="checkbox" id="data-nose-p2" value="Mũi nhọn" name="nose-filter" data-event="(tag:product**mui-nhon)" />
+                                        <label for="data-nose-p2">
+                                            <span class="button"></span>
+                                            Mũi nhọn
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>*@
+
+
+                    <div class="actionFilterMobile">
+                        <a href="javascript:void(0);" class="btn_apply_filter_now">Áp dụng</a>
+                        <a href="javascript:void(0);" class="btn_filter_cancel">Hủy</a>
+                    </div>
+
+                    <div class="append-search hide"></div>
+                </div>
+            </div>
+        </div>
+        <script>
+            //Haravan.queryParams = {};
+            //if (location.search.length) {
+            //    for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
+            //        aKeyValue = aCouples[i].split('=');
+            //        if (aKeyValue.length > 1) {
+            //            Haravan.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+            //        }
+            //    }
+            //}
+            //jQuery('.sort-by').val('manual').bind('change', function () {
+            //    Haravan.queryParams.sort_by = jQuery(this).val();
+            //});
+            function appendSearch(value, title, type) {
+                $('.append-search .' + type).remove();
+                $('.append-search').append("<span class=" + type + ">" + title + ": " + value + "<span class='append-search-remove'><span></span></span>");
+            }
+            function appendUrl(value, title, type) {
+                $('.append-url .' + type).remove();
+                $('.append-url').append("<span class=" + type + ">" + title + value + "</span>");
+                $('.append-url').each(function () {
+                    var value = $(this).html().replace(/(<([^>]+)>)/ig, "");
+                });
+            }
+            function checkFixBox() {
+                $('.check-box-list li').each(function () {
+                    var check = $('input:checked').length;
+                    var valSortHidden = $("#coll-sort").val();
+                    var varSort = $(".sort-by").val();
+                    if (check == 0 && varSort == valSortHidden) {
+                        setTimeout(function () {
+                            $(".content-product-list").addClass("fixBox");
+                        }, 700)
+                    } else {
+                        setTimeout(function () {
+                            $(".content-product-list").removeClass("fixBox");
+                        }, 700)
+                    }
+                });
+            }
+            $(document).ready(function () {
+                $(".btnSortMobile").click(function () {
+                    $(".sort-by").trigger("click");
+                });
+                removeFilter();
+                loadCheckFilter();
+                if ($(window).width() > 1025) {
+                    var height = $(".pro-loop:not(.largeproduct)").outerHeight();
+                    $(".fixBox .largeproduct").css("height", height * 2 + 40);
+                }
+            });
+            function loadCheckFilter() {
+                var href = window.location.href;
+                if (href.indexOf("?filter=") != -1) {
+                    var split = href.split("?filter=")[1];
+                    $(".check-box-list input").each(function () {
+                        var val = $(this).attr("data-url");
+                        if (split.indexOf(val) != -1) {
+                            $(this).prop('checked', true);
+                            $(this).parent().addClass("active");
+                        }
+                    });
+                    setTimeout(function () {
+                        var _url = get_Query();
+                        get_Product(_url);
+                    }, 300)
+                }
+            }
+            function removeFilter() {
+                $(document).on('click', '.append-search-remove', function () {
+                    switch ($(this).parent().attr('class')) {
+                        case 'x-color':
+                            $(this).parent().remove();
+                            $(".url-color").remove();
+                            $('[name="color-filter"]').prop('checked', false);
+                            $('[name="color-filter"]').parent().removeClass("active");
+                            var _url = get_Query();
+                            get_Product(_url);
+                            break;
+                        case 'x-size':
+                            $(this).parent().remove();
+                            $(".url-size").remove();
+                            $('[name="size-filter"]').prop('checked', false);
+                            $('[name="size-filter"]').parent().removeClass("active");
+                            var _url = get_Query();
+                            get_Product(_url);
+                            break;
+                        case 'x-height':
+                            $(this).parent().remove();
+                            $(".url-event").remove();
+                            $('[name="height-filter"]').prop('checked', false);
+                            $('[name="height-filter"]').parent().removeClass("active");
+                            var _url = get_Query();
+                            get_Product(_url);
+                            break;
+                        case 'x-style':
+                            $(this).parent().remove();
+                            $(".url-style").remove();
+                            $('[name="style-filter"]').prop('checked', false);
+                            $('[name="style-filter"]').parent().removeClass("active");
+                            var _url = get_Query();
+                            get_Product(_url);
+                            break;
+                        case 'x-event':
+                            $(this).parent().remove();
+                            $(".url-event").remove();
+                            $('[name="event-filter"]').prop('checked', false);
+                            $('[name="event-filter"]').parent().removeClass("active");
+                            var _url = get_Query();
+                            get_Product(_url);
+                            break;
+                        case 'x-nose':
+                            $(this).parent().remove();
+                            $(".url-nose").remove();
+                            $('[name="nose-filter"]').prop('checked', false);
+                            $('[name="nose-filter"]').parent().removeClass("active");
+                            var _url = get_Query();
+                            get_Product(_url);
+                            break;
+                        case 'x-bag':
+                            $(this).parent().remove();
+                            $(".url-bag").remove();
+                            $('[name="bag-filter"]').prop('checked', false);
+                            $('[name="bag-filter"]').parent().removeClass("active");
+                            var _url = get_Query();
+                            get_Product(_url);
+                            break;
+                    }
+                });
+            }
+            function smoothScroll(a, b) {
+                $('body,html').animate({
+                    scrollTop: a
+                }, b);
+            }
+            //var handle_coll = $('#coll-handle').val();
+            //var total_page = 2;
+            //var cur_page = 1;
+            //var total_num = parseInt(62);
+            //var check_get_totalnum = true;
+            //var total_page_scroll = 0, cur_page_scroll = 0;
+            //var curl_scroll = '/collections/giay-cao-got';
+            //var url_temp = "/search?q=filter=(" + handle_coll + ")";
+            //$.ajax({
+            //    url: '/collections/giay-cao-got' + '?view=page',
+            //    async: false,
+            //    success: function (data) {
+            //        total_page_scroll = parseInt(data);
+            //    }
+            //});
+            //if (cur_page_scroll < total_page_scroll) {
+            //    cur_page_scroll++;
+            //}
+            //if (cur_page_scroll == total_page_scroll) {
+            //    $('.btnLoadMore').hide();
+            //}
+            if ($(window).width() < 992) {
+                $('.check-box-list li > input').click(function () {
+                    $(this).parent().toggleClass('active');
+                })
+                $(".btn_apply_filter_now").click(function () {
+                    $("body").removeClass("openFilter");
+                    var _url = get_Query();
+                    get_Product(_url);
+                });
+            }
+            else {
+                $('.check-box-list li > input').click(function () {
+                    $(this).parent().toggleClass('active');
+                    var _url = get_Query();
+                    get_Product(_url);
+                    appendFilter();
+                })
+            }
+
+            $('.sort-by').change(function () {
+                var _url = get_Query();
+                get_Product(_url);
+            })
+            //$(document).on('click', '.btnLoadMore', function () {
+            //    if (cur_page_scroll < total_page_scroll) {
+            //        cur_page_scroll++;
+            //        var valSearch = $(".append-search").html();
+            //        if (valSearch == "") {
+            //            var _url = '/collections/giay-cao-got?view=filter&page=' + cur_page_scroll;
+            //        } else {
+            //            var _url = get_Query() + '&view=filter&page=' + cur_page_scroll;
+            //        }
+            //        $.ajax({
+            //            url: _url,
+            //            async: false,
+            //            success: function (data) {
+            //                setTimeout(function () {
+            //                    checkFixBox();
+            //                    HuyHoang.Main.resizeImage();
+            //                }, 200);
+            //                $('.product-list').append(data);
+            //                if ($(window).width() > 1025) {
+            //                    var height = $(".pro-loop:not(.largeproduct)").outerHeight();
+            //                    $(".fixBox .largeproduct").css("height", height * 2 + 40);
+            //                }
+            //                $(".product-list.filter").removeClass('border');
+            //                HuyHoang.Main.colorVariant();
+            //                lazyload();
+            //            }
+            //        });
+            //        if (cur_page_scroll >= total_page_scroll) {
+            //            $('.btnLoadMore').hide();
+            //        }
+            //    }
+            //    else {
+            //        $('.btnLoadMore').hide();
+            //    }
+            //});
+            function appendFilter() {
+                $('[name="color-filter"]').change(function (e) {
+                    var le = $('[name="color-filter"]:checked').length;
+                    if (le != 0) {
+                        var appcolor = '';
+                        var handlecolor = '';
+                        $('[name="color-filter"]:checked').each(function () {
+                            appcolor = appcolor + ", " + $(this).val();
+                            handlecolor = handlecolor + "?" + $(this).attr("data-url");
+                        })
+                        appendSearch("<b>" + appcolor.substring(1) + "</b>", "Màu sắc", 'x-color');
+                        appendUrl(handlecolor.substring(1), "?tag=", 'url-color');
+                    } else {
+                        $('.append-search .x-color').remove();
+                        $('.append-url .url-color').remove();
+                    }
+                });
+                $('[name="size-filter"]').change(function (e) {
+                    var le = $('[name="size-filter"]:checked').length;
+                    if (le != 0) {
+                        var appsize = '';
+                        var handlesize = '';
+                        $('[name="size-filter"]:checked').each(function () {
+                            appsize = appsize + ", " + $(this).val();
+                            handlesize = handlesize + "," + $(this).attr("data-url");
+                        })
+                        appendSearch("<b>" + appsize.substring(1) + "</b>", "Size", 'x-size');
+                        appendUrl(handlesize.substring(1), "?tag=", 'url-size');
+                    } else {
+                        $('.append-search .x-size').remove();
+                        $('.append-url .url-size').remove();
+                    }
+                });
+                $('[name="height-filter"]').change(function (e) {
+                    var le = $('[name="height-filter"]:checked').length;
+                    if (le != 0) {
+                        var appheight = '';
+                        var handlheight = '';
+                        $('[name="height-filter"]:checked').each(function () {
+                            appheight = appheight + ", " + $(this).val();
+                            handlheight = handlheight + "," + $(this).attr("data-url");
+                        })
+                        appendSearch("<b>" + appheight.substring(1) + "</b>", "Độ cao", 'x-height');
+                        appendUrl(handlheight.substring(1), "?tag=", 'url-height');
+                    } else {
+                        $('.append-search .x-height').remove();
+                        $('.append-url .url-height').remove();
+                    }
+                });
+                $('[name="style-filter"]').change(function (e) {
+                    var le = $('[name="style-filter"]:checked').length;
+                    if (le != 0) {
+                        var appstyle = '';
+                        var handlestyle = '';
+                        $('[name="style-filter"]:checked').each(function () {
+                            appstyle = appstyle + ", " + $(this).val();
+                            handlestyle = handlestyle + "," + $(this).attr("data-url");
+                        })
+                        appendSearch("<b>" + appstyle.substring(1) + "</b>", "Kiểu gót", 'x-style');
+                        appendUrl(handlestyle.substring(1), "?tag=", 'url-style');
+                    } else {
+                        $('.append-search .x-style').remove();
+                        $('.append-url .url-style').remove();
+                    }
+                });
+                $('[name="style-filter"]').change(function (e) {
+                    var le = $('[name="event-filter"]:checked').length;
+                    if (le != 0) {
+                        var appevent = '';
+                        var handleevent = '';
+                        $('[name="event-filter"]:checked').each(function () {
+                            appevent = appevent + ", " + $(this).val();
+                            handleevent = handleevent + "," + $(this).attr("data-url");
+                        })
+                        appendSearch("<b>" + appevent.substring(1) + "</b>", "Phong cách", 'x-event');
+                        appendUrl(handleevent.substring(1), "?tag=", 'url-event');
+                    } else {
+                        $('.append-search .x-event').remove();
+                        $('.append-url .url-event').remove();
+                    }
+                });
+                $('[name="nose-filter"]').change(function (e) {
+                    var le = $('[name="nose-filter"]:checked').length;
+                    if (le != 0) {
+                        var appnose = '';
+                        var handlenose = '';
+                        $('[name="nose-filter"]:checked').each(function () {
+                            appnose = appnose + ", " + $(this).val();
+                            handlenose = handlenose + "," + $(this).attr("data-url");
+                        })
+                        appendSearch("<b>" + appnose.substring(1) + "</b>", "Kiểu mũi", 'x-nose');
+                        appendUrl(handleevent.substring(1), "?tag=", 'url-nose');
+                    } else {
+                        $('.append-search .x-nose').remove();
+                        $('.append-url .url-nose').remove();
+                    }
+                });
+                $('[name="bag-filter"]').change(function (e) {
+                    var le = $('[name="bag-filter"]:checked').length;
+                    if (le != 0) {
+                        var appbag = '';
+                        var handlebag = '';
+                        $('[name="bag-filter"]:checked').each(function () {
+                            appbag = appbag + ", " + $(this).val();
+                            handlebag = handlebag + "," + $(this).attr("data-url");
+                        })
+                        appendSearch("<b>" + appbag.substring(1) + "</b>", "Loại túi", 'x-bag');
+                        appendUrl(handlebag.substring(1), "?tag=", 'url-bag');
+                    } else {
+                        $('.append-search .x-bag').remove();
+                        $('.append-url .url-bag').remove();
+                    }
+                });
+            }
+            function get_Query() {
+                var Colors = []
+                var Sizes = []
+                jQuery('.filter-color ul.check-box-list li.active').each(function () {
+                    Colors.push(jQuery(this).find('input').data('url'))
+                    var le = $('[name="color-filter"]:checked').length;
+                    if (le != 0) {
+                        var appcolor = '';
+                        var handlecolor = '';
+                        $('[name="color-filter"]:checked').each(function () {
+                            appcolor = appcolor + ", " + $(this).val();
+                            handlecolor = handlecolor + "?" + $(this).attr("data-url");
+                        })
+                        appendSearch("<b>" + appcolor.substring(1) + "</b>", "Màu sắc", 'x-color');
+                        appendUrl(handlecolor.substring(1), "?tag=", 'url-color');
+                    } else {
+                        $('.append-search .x-color').remove();
+                        $('.append-url .url-color').remove();
+                    }
+                })
+
+                jQuery('.filter-size ul.check-box-list li.active').each(function () {
+                    Sizes.push(jQuery(this).find('input').data('url'))
+                    var le = $('[name="size-filter"]:checked').length;
+                    if (le != 0) {
+                        var appsize = '';
+                        var handlesize = '';
+                        $('[name="size-filter"]:checked').each(function () {
+                            appsize = appsize + ", " + $(this).val();
+                            handlesize = handlesize + "," + $(this).attr("data-url");
+                        })
+                        appendSearch("<b>" + appsize.substring(1) + "</b>", "Size", 'x-size');
+                        appendUrl(handlesize.substring(1), "?tag=", 'url-size');
+                    } else {
+                        $('.append-search .x-size').remove();
+                        $('.append-url .url-size').remove();
+                    }
+                })
+                var Filters = {
+                    Colors: Colors,
+                    CollectionType: $('#collection-type').val(),
+                    CollectionAlias: $('#collection-alias').val(),
+                    Sizes: Sizes,
+                    Sorting: $('.sort-by').val()
+                }
+                return Filters;
+            }
+            function get_Product(filters) {
+                $.ajax({
+                    url: '@Url.Action("Filter", "Product")',
+                    method: 'POST',
+                    data: filters,
+                    async: false,
+                    success: function (data) {
+                        $('.content-data-product').html(data)
+                    }
+                });
+            }
+            function afterFilter() {
+                lazyload();
+                HuyHoang.Main.resizeImage();
+                $(".product-list.filter").removeClass('border');
+                HuyHoang.Main.colorVariant();
+                setTimeout(function () {
+                    var href = window.location.href;
+                    if (href.indexOf("?filter=") != -1) {
+                        var split = href.split("?filter=")[1];
+                        $(".variantColor li").each(function () {
+                            var val = $(this).attr("data-filter").replace('_', '-');
+                            if (split.indexOf(val) != -1) {
+                                $(this).trigger("mouseover");
+                            }
+                        });
+                    }
+                }, 300)
+                if ($(window).width() > 1025) {
+                    setTimeout(function () {
+                        var height = $(".pro-loop:not(.largeproduct)").outerHeight();
+                        $(".fixBox .largeproduct").css("height", height * 2 + 40);
+                    }, 300)
+                }
+            }
+            $(".eachTagFilter input").each(function () {
+                $(this).parents(".eachTagFilter").show();
+            });
+        </script>
+    </main>
+</div>
+

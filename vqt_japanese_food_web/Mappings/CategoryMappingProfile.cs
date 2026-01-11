@@ -8,7 +8,7 @@ namespace vqt_japanese_food_web.Mappings
     {
         public CategoryMappingProfile()
         {
-            CreateMap<CategoryEntities, CategoryDto>().ReverseMap();
+            CreateMap<CategoryDto, CategoryEntities>().ForMember(dest => dest.Catalog, opt => opt.Ignore()).ReverseMap();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JapaneseFood.Entity.Article;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -12,5 +13,6 @@ namespace JapaneseFood.Entity.Category
     {
         public required string Name { get; set; }
         public long CatalogId { get; set; }
+        public CatalogEntities Catalog { get; set; } = null!;
     }
 }

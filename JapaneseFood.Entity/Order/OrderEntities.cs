@@ -8,13 +8,15 @@ using System.Threading.Tasks;
 namespace JapaneseFood.Entity.Order
 {
     [Table("Orders")]
-    public class OrderEntities
+    public class OrderEntities : BaseEntities
     {
+        public required string Code { get; set; }
         public long UserId { get; set; }
-        public string? UserEmail { get; set; }
+        public string? UserName { get; set; }
         public string? Address { get; set; }
         public string? FullName { get; set; }
         public string? Phone { get; set; }
+        public int Quantity { get; set; }
         public decimal SubTotal { get; set; }
         public decimal Discount { get; set; }
         public decimal ShippingFee { get; set; }

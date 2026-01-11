@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Do_An\\vqt_japanese_food_web\\JapaneseFood.Entity\\JapaneseFood.Entity.csproj": {}
+    "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\JapaneseFood.Entity\\JapaneseFood.Entity.csproj": {}
   },
   "projects": {
-    "D:\\Do_An\\vqt_japanese_food_web\\JapaneseFood.Entity\\JapaneseFood.Entity.csproj": {
+    "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\JapaneseFood.Entity\\JapaneseFood.Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Do_An\\vqt_japanese_food_web\\JapaneseFood.Entity\\JapaneseFood.Entity.csproj",
+        "projectUniqueName": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\JapaneseFood.Entity\\JapaneseFood.Entity.csproj",
         "projectName": "JapaneseFood.Entity",
-        "projectPath": "D:\\Do_An\\vqt_japanese_food_web\\JapaneseFood.Entity\\JapaneseFood.Entity.csproj",
-        "packagesPath": "C:\\Users\\DevBlock-DBL065\\.nuget\\packages\\",
-        "outputPath": "D:\\Do_An\\vqt_japanese_food_web\\JapaneseFood.Entity\\obj\\",
+        "projectPath": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\JapaneseFood.Entity\\JapaneseFood.Entity.csproj",
+        "packagesPath": "C:\\Users\\tunx4\\.nuget\\packages\\",
+        "outputPath": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\JapaneseFood.Entity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\DevBlock-DBL065\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tunx4\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -25,8 +25,7 @@
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "http://private-nuget.linkitdev.com/nuget": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -68,6 +67,12 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[9.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.11, )"
             }
           },
           "imports": [
@@ -86,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

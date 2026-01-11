@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace JapaneseFood.Entity.Product
 {
+    [Table("ProductLikes")]
     public class ProductLikeEntities
     {
+        public long Id { get; set; }
         public long ProductId { get; set; }
         public int Like { get; set; }
     }

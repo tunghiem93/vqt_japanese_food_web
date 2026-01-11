@@ -9,3 +9,16 @@ D:\Do_An\vqt_japanese_food_web\JapaneseFood.Model\obj\Debug\net9.0\JapaneseFood.
 D:\Do_An\vqt_japanese_food_web\JapaneseFood.Model\obj\Debug\net9.0\refint\JapaneseFood.Model.dll
 D:\Do_An\vqt_japanese_food_web\JapaneseFood.Model\obj\Debug\net9.0\JapaneseFood.Model.pdb
 D:\Do_An\vqt_japanese_food_web\JapaneseFood.Model\obj\Debug\net9.0\ref\JapaneseFood.Model.dll
+D:\Study\DoAn-2026\Greenwich\vqt_japanese_food_web\JapaneseFood.Model\bin\Debug\net9.0\JapaneseFood.Model.deps.json
+D:\Study\DoAn-2026\Greenwich\vqt_japanese_food_web\JapaneseFood.Model\bin\Debug\net9.0\JapaneseFood.Model.dll
+D:\Study\DoAn-2026\Greenwich\vqt_japanese_food_web\JapaneseFood.Model\bin\Debug\net9.0\JapaneseFood.Model.pdb
+D:\Study\DoAn-2026\Greenwich\vqt_japanese_food_web\JapaneseFood.Model\obj\Debug\net9.0\JapaneseFood.Model.csproj.AssemblyReference.cache
+D:\Study\DoAn-2026\Greenwich\vqt_japanese_food_web\JapaneseFood.Model\obj\Debug\net9.0\JapaneseFood.Model.GeneratedMSBuildEditorConfig.editorconfig
+D:\Study\DoAn-2026\Greenwich\vqt_japanese_food_web\JapaneseFood.Model\obj\Debug\net9.0\JapaneseFood.Model.AssemblyInfoInputs.cache
+D:\Study\DoAn-2026\Greenwich\vqt_japanese_food_web\JapaneseFood.Model\obj\Debug\net9.0\JapaneseFood.Model.AssemblyInfo.cs
+D:\Study\DoAn-2026\Greenwich\vqt_japanese_food_web\JapaneseFood.Model\obj\Debug\net9.0\JapaneseFood.Model.csproj.CoreCompileInputs.cache
+D:\Study\DoAn-2026\Greenwich\vqt_japanese_food_web\JapaneseFood.Model\obj\Debug\net9.0\JapaneseFood.Model.sourcelink.json
+D:\Study\DoAn-2026\Greenwich\vqt_japanese_food_web\JapaneseFood.Model\obj\Debug\net9.0\JapaneseFood.Model.dll
+D:\Study\DoAn-2026\Greenwich\vqt_japanese_food_web\JapaneseFood.Model\obj\Debug\net9.0\refint\JapaneseFood.Model.dll
+D:\Study\DoAn-2026\Greenwich\vqt_japanese_food_web\JapaneseFood.Model\obj\Debug\net9.0\JapaneseFood.Model.pdb
+D:\Study\DoAn-2026\Greenwich\vqt_japanese_food_web\JapaneseFood.Model\obj\Debug\net9.0\ref\JapaneseFood.Model.dll
