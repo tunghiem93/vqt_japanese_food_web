@@ -29,6 +29,7 @@ namespace JapaneseFood.Model.Product
         public int ReviewCount { get; set; }
         public bool IsAvailable { get; set; }
         public int? DiscountId { get; set; }
+        public string ImageUrl { get; set; } = string.Empty;
         public List<ImageDto> Images { get; set; } = new List<ImageDto>();
         public ProductImageDto ProductImage { get; set; } = new ProductImageDto();
         public List<SelectListItem> Categories { get; set; } = new List<SelectListItem>();
