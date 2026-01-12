@@ -9447,23 +9447,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tunx4\\.nuget\\packages\\": {},
+    "C:\\Users\\DevBlock-DBL065\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\vqt_japanese_food_web.csproj",
+      "projectUniqueName": "D:\\Do_An\\vqt_japanese_food_web_main\\vqt_japanese_food_web\\vqt_japanese_food_web.csproj",
       "projectName": "vqt_japanese_food_web",
-      "projectPath": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\vqt_japanese_food_web.csproj",
-      "packagesPath": "C:\\Users\\tunx4\\.nuget\\packages\\",
-      "outputPath": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\vqt_japanese_food_web\\obj\\",
+      "projectPath": "D:\\Do_An\\vqt_japanese_food_web_main\\vqt_japanese_food_web\\vqt_japanese_food_web.csproj",
+      "packagesPath": "C:\\Users\\DevBlock-DBL065\\.nuget\\packages\\",
+      "outputPath": "D:\\Do_An\\vqt_japanese_food_web_main\\vqt_japanese_food_web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\tunx4\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\DevBlock-DBL065\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -9471,21 +9471,22 @@
         "net9.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "http://private-nuget.linkitdev.com/nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\JapaneseFood.Common\\JapaneseFood.Common.csproj": {
-              "projectPath": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\JapaneseFood.Common\\JapaneseFood.Common.csproj"
+            "D:\\Do_An\\vqt_japanese_food_web_main\\JapaneseFood.Common\\JapaneseFood.Common.csproj": {
+              "projectPath": "D:\\Do_An\\vqt_japanese_food_web_main\\JapaneseFood.Common\\JapaneseFood.Common.csproj"
             },
-            "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\JapaneseFood.Entity\\JapaneseFood.Entity.csproj": {
-              "projectPath": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\JapaneseFood.Entity\\JapaneseFood.Entity.csproj"
+            "D:\\Do_An\\vqt_japanese_food_web_main\\JapaneseFood.Entity\\JapaneseFood.Entity.csproj": {
+              "projectPath": "D:\\Do_An\\vqt_japanese_food_web_main\\JapaneseFood.Entity\\JapaneseFood.Entity.csproj"
             },
-            "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\JapaneseFood.Model\\JapaneseFood.Model.csproj": {
-              "projectPath": "D:\\Study\\DoAn-2026\\Greenwich\\vqt_japanese_food_web\\JapaneseFood.Model\\JapaneseFood.Model.csproj"
+            "D:\\Do_An\\vqt_japanese_food_web_main\\JapaneseFood.Model\\JapaneseFood.Model.csproj": {
+              "projectPath": "D:\\Do_An\\vqt_japanese_food_web_main\\JapaneseFood.Model\\JapaneseFood.Model.csproj"
             }
           }
         }
@@ -9534,7 +9535,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

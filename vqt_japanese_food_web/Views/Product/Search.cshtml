@@ -1,9 +1,8 @@
-﻿@model HuyHoangDATN.Models.Product.ProductCollectionsViewDTO
+﻿@model vqt_japanese_food_web.Models.ProductSaleViewModel
 @{
     var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
 }
-@Html.HiddenFor(model => model.CollectionsType, new { @id = "collection-type" })
-@Html.HiddenFor(model => model.CollectionsAlias, new { @id = "collection-alias" })
+
 <div>
     <main class="">
         <div class="searchPage" id="layout-search">
@@ -26,35 +25,23 @@
                                         <div class="product-resize col-md-3 col-sm-6 col-xs-6 pro-loop fixheight" style="height: 384px;">
                                             <div class="product-block" data-anmation="1">
                                                 <div class="product-img image-resize fixheight" style="height: 243px;">
-                                                    <a href="@Url.Action(" Detail", "Product" , new { q=product.Alias })" title="Mã sản phẩm: @product.Code">
+                                                    <a href="@Url.Action(" Detail", "Product" , new { q=product.Id })" title="Mã sản phẩm: @product.Code">
                                                         <picture>
-                                                            <img class="img-loop lazyload" src="@Url.Content(product.ImageURL)" data-src="@Url.Content(product.ImageURL)" alt="@product.Name" />
+                                                                        <img class="img-loop lazyload" src="@Url.Content(product.ImageUrl)" data-src="@Url.Content(product.ImageUrl)" alt="@product.Name" />
                                                         </picture>
 
                                                         <picture>
-                                                            <img class="img-loop img-hover lazyload" src="@Url.Content(product.ImageURL)" data-src="@Url.Content(product.ImageURL)" alt="@product.Name" />
+                                                                        <img class="img-loop img-hover lazyload" src="@Url.Content(product.ImageUrl)" data-src="@Url.Content(product.ImageUrl)" alt="@product.Name" />
                                                         </picture>
                                                     </a>
                                                 </div>
                                                 <div class="product-detail clearfix">
                                                     <div class="variantColor">
-                                                        @if (product.ListColors != null && product.ListColors.Any())
-                                                        {
-                                                        <ul>
-                                                            @foreach (var color in product.ListColors)
-                                                            {
-                                                            <li class="" data-filter="@color.Name" data-color="?color=@color.Code">
-                                                                <a href="javascript:void(0);" data-img="@Url.Content(color.ImageURL)" data-img-hover="@Url.Content(color.ImageURL)">
-                                                                    <img class="lazyload" src="@Url.Content(" ~ /Uploads/Color/" + string.Format("{0}.{1}", color.Code, "png" ))" data-src="@Url.Content(" ~ /Uploads/Color/" + string.Format("{0}.{1}", color.Code, "png" ))" alt="color_@string.Format(" {0}_", color.Code)" />
-                                                                </a>
-                                                            </li>
-                                                            }
-                                                        </ul>
-                                                        }
+                                                        
                                                     </div>
                                                     <div class="box-pro-detail">
                                                         <h3 class="pro-name">
-                                                            <a href="@Url.Action(" Detail", "Product" , new { q=product.Alias })" title="@product.Name">
+                                                            <a href="@Url.Action(" Detail", "Product" , new { q=product.Id })" title="@product.Name">
                                                                 @product.Name
                                                             </a>
                                                         </h3>
@@ -69,8 +56,8 @@
                                                     <div class="labelNewNew styleTogetherLabel">MẪU MỚI</div>
                                                 </div>
                                                 <div class="actionLoop visible-lg">
-                                                    <a class="quickView styleBtnBuy notClick" data-handle="@Url.Action(" Detail", "Product" , new { q=product.Alias })"><i class="fa fa-shopping-cart"></i> Mua nhanh</a>
-                                                    <a class="styleBtnBuy" href="@Url.Action(" Detail", "Product" , new { q=product.Alias })"><i class="fa fa-eye"></i> Xem chi tiết</a>
+                                                    <a class="quickView styleBtnBuy notClick" data-handle="@Url.Action(" Detail", "Product" , new { q=product.Id })"><i class="fa fa-shopping-cart"></i> Mua nhanh</a>
+                                                    <a class="styleBtnBuy" href="@Url.Action(" Detail", "Product" , new { q=product.Id })"><i class="fa fa-eye"></i> Xem chi tiết</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -83,22 +70,6 @@
                                         }
                                     </div>
                                 </div>
-                                @*<div class="row pagination-theme clearfix text-center">
-                                    <div id="pagination" class="clearfix">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <span class="page-node current">1</span>
-                                            <a class="page-node" href="/search?type=product&amp;q=filter%3D((title%3Aproduct**gi%C3%A0y)%7C%7C(sku%3Aproduct**gi%C3%A0y))&amp;page=2">2</a>
-                                            <a class="page-node" href="/search?type=product&amp;q=filter%3D((title%3Aproduct**gi%C3%A0y)%7C%7C(sku%3Aproduct**gi%C3%A0y))&amp;page=3">3</a>
-                                            <span class="page-node ">…</span>
-                                            <a class="page-node" href="/search?type=product&amp;q=filter%3D((title%3Aproduct**gi%C3%A0y)%7C%7C(sku%3Aproduct**gi%C3%A0y))&amp;page=20">20</a>
-                                            <a class="next" href="/search?type=product&amp;q=filter%3D((title%3Aproduct**gi%C3%A0y)%7C%7C(sku%3Aproduct**gi%C3%A0y))&amp;page=2">
-                                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 31 10" style="enable-background:new 0 0 31 10; width: 31px; height: 10px;" xml:space="preserve">
-                                                <polygon points="31,5 25,0 25,4 0,4 0,6 25,6 25,10 "></polygon>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>*@
                             </div>
                         </div>
                     </div>

@@ -7,17 +7,11 @@
 <head>
     <link rel="shortcut icon" href="@Url.Content("~/logo.png")" type="image/png" />
     <title>
-        HuyHoang - Thanh toán đơn hàng
+        VQT - Check out
     </title>
-    <meta name="description" content="HuyHoang - Thanh toán đơn hàng" />
-    @*
-    <link href='//hstatic.net/0/0/global/checkouts.css?v=1.1' rel='stylesheet' type='text/css' media='all' />*@
-    @*
-    <link href='//theme.hstatic.net/1000003969/1000550110/14/check_out.css?v=97' rel='stylesheet' type='text/css' media='all' />*@
+    <meta name="description" content="VQT - Check ou" />
     <script src="@Url.Content("~/Content/web/jquery.min.1.11.0.js")"></script>
     <script src="@Url.Content("~/Scripts/commons.js")"></script>
-    @*
-    <script src='//hstatic.net/0/0/global/jquery.validate.js' type='text/javascript'></script>*@
     <link href="@Url.Content("~/Content/web/checkout.css")" rel="stylesheet" />
     <link href="@Url.Content("~/Content/web/styles.css")" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no">
@@ -110,7 +104,7 @@
                     _orderParam.Email = cusEmail.val();
                     _orderParam.Description = cusDescription.val();
                     var listPro = [];
-                    var dataProduct = HuyHoang.getListOrder();
+                    var dataProduct = vuongQuanTuan.getListOrder();
                     if (dataProduct != null && dataProduct != undefined) {
                         $.each(dataProduct, function (index, value) {
                             var _productList = new Object();
@@ -140,7 +134,7 @@
                     data: _orderParam,
                     success: function (data) {
                         if (data.Failure == false) {
-                            HuyHoang.detroyOder();
+                            vuongQuanTuan.detroyOder();
                             LoadProductData([]);
                             swal({
                                 title: "Bạn đã đặt hàng thành công.",
@@ -309,30 +303,6 @@
                 });
         });
     </script>
-    @*
-    <script type='text/javascript'>
-        //<![CDATA[
-        if ((typeof Haravan) === 'undefined') {
-            Haravan = {};
-        }
-        Haravan.culture = 'vi-VN';
-        Haravan.shop = 'HuyHoang-1.myharavan.com';
-        Haravan.theme = { "name": "Optimize 2020 HuyHoang", "id": 1000550110, "role": "main" };
-        Haravan.domain = 'HuyHoang.com';
-        //]]>
-    </script>
-    <script type='text/javascript'>!function () { var hrv_analytics = window.hrv_analytics = window.hrv_analytics || []; if (!hrv_analytics.initialize) if (hrv_analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else { hrv_analytics.invoked = !0; hrv_analytics.methods = ["start", "trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on"]; hrv_analytics.factory = function (t) { return function () { var e = Array.prototype.slice.call(arguments); e.unshift(t); hrv_analytics.push(e); return hrv_analytics } }; for (var t = 0; t < hrv_analytics.methods.length; t++) { var e = hrv_analytics.methods[t]; hrv_analytics[e] = hrv_analytics.factory(e) } hrv_analytics.load = function (t, e) { var n = document.createElement("script"); n.type = "text/javascript"; n.async = !0; n.src = "https://stats.hstatic.net/analyticsv2.min.js"; var a = document.getElementsByTagName("script")[0]; a.parentNode.insertBefore(n, a); hrv_analytics._loadOptions = e }; hrv_analytics.SNIPPET_VERSION = "4.1.0"; hrv_analytics.start('pro:web:1000003969'); hrv_analytics.page(); hrv_analytics.load(); } }();</script>
-    <script src='https://browser.sentry-cdn.com/5.7.1/bundle.min.js' integrity='sha384-KMv6bBTABABhv0NI+rVWly6PIRvdippFEgjpKyxUcpEmDWZTkDOiueL5xW+cztZZ' crossorigin='anonymous'></script>
-    <script>Sentry.init({ dsn: 'https://4fd33061e48b4851b35a0a0b07d1dae0@sentry.io/1801451' });</script>
-    <script type='text/javascript'>
-        window.HaravanAnalytics = window.HaravanAnalytics || {};
-        window.HaravanAnalytics.meta = window.HaravanAnalytics.meta || {};
-        window.HaravanAnalytics.meta.currency = 'VND';
-        var meta = { "page": { "pageType": "checkout", "resourceType": "checkout", "resourceId": "ea62e7280dfa4cb1b45227b98a005d1e" }, "cart": { "products": [{ "variantId": 1050544019, "productId": 1022694137, "price": 69500000.0, "name": "Balo nắp gập teenage-like - Hoa", "sku": "BL097", "vendor": "HuyHoang", "variant": "Hoa", "type": "Balo", "quantity": 1 }, { "variantId": 1051178288, "productId": 1022794813, "price": 45500000.0, "name": "Giày đế xuồng giả gỗ - 35 / Nâu", "sku": "DX07019", "vendor": "HuyHoang", "variant": "35 / Nâu", "type": "Giày Đế Xuồng", "quantity": 2 }], "item_count": 3, "total_price": 160500000.0 } };
-        for (var attr in meta) {
-            window.HaravanAnalytics.meta[attr] = meta[attr];
-        }
-    </script>*@
     <style>
         .imageVariantCart, .quantityVariantCart, .totalLinePriceVariantCart {
             width: 22% !important;
@@ -367,7 +337,7 @@
     <div class="banner">
         <div class="wrap">
             <a href="@Url.Action(" CheckOut", "Carts" )" class="logo">
-                <h1 class="logo-text">HuyHoang</h1>
+                <h1 class="logo-text">Vuong Quang Tuan</h1>
             </a>
         </div>
     </div>
@@ -518,11 +488,11 @@
             <div class="main">
                 <div class="main-header" style="padding-bottom: 0px !important; ">
                     <a href="/" class="logo">
-                        <h1 class="logo-text">HuyHoang</h1>
+                        <h1 class="logo-text">Vuong Quang Tuan</h1>
                     </a>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="@Url.Action(" Index", "Carts" )">Giỏ hàng</a>
+                            <a href="@Url.Action(" Index", "Carts" )">Cart</a>
                         </li>
                         <li class="breadcrumb-item breadcrumb-item-current">
                             Thông tin giao hàng
@@ -536,48 +506,6 @@
                                 <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5H9DPZ"
                                         height="0" width="0" style="display:none;visibility:hidden"></iframe>
                             </noscript>
-                            @*
-                            <script src='//go.ecotrackings.com/eco_tracking.js' type='text/javascript'></script>
-                            <script>
-                                var eco_token = "anVuby52bg==";
-                                var eco_data = {
-                                    "offer_id": "HuyHoangvn",
-                                    "transaction_id": "",
-                                    "transaction_time": "",
-                                    "session_ip": "",
-                                    "traffic_id": eco_cps.get_traffic_id(),
-                                    "products": [
-
-
-                                        {
-                                            "id": "1022694137",
-                                            "sku": "8935281554862",
-                                            "category": "Set Túi xách cỡ lớn",
-                                            "price": "695000",
-                                            "name": "Balo nắp gập teenage-like",
-                                            "commission": "15%",
-                                            "status_code": "0",
-                                            "quantity": "1",
-                                        }
-                                        ,
-
-
-                                        {
-                                            "id": "1022794813",
-                                            "sku": "8935281553780",
-                                            "category": "Nhom giay bs combo T3",
-                                            "price": "455000",
-                                            "name": "Giày đế xuồng giả gỗ",
-                                            "commission": "15%",
-                                            "status_code": "0",
-                                            "quantity": "2",
-                                        }
-
-
-                                    ]
-                                };
-                            </script>
-                            <script src='//go.ecotrackings.com/eco_px.js?time=123123123' type='text/javascript'></script>*@
                             <script>
                                 $.get('https://theme.hstatic.net/1000003969/1000550110/14/checkout-handler.js?v=' + (new Date).getTime()).then(function (data) { eval(data); })
                                 !function (e, t, n) { var a = t.getElementsByTagName(n)[0], c = t.createElement(n); c.async = false, c.src = "https://theme.hstatic.net/1000003969/1000550110/14/main-tracking-new.js?v=" + (new Date).getTime(), a.parentNode.insertBefore(c, a) }(window, document, "script");
@@ -605,10 +533,6 @@
                                     <h2 class="section-title">Thông tin giao hàng</h2>
                                 </div>
                                 <div class="section-content section-customer-information no-mb">
-                                    @*<p class="section-content-text">
-                                        Bạn đã có tài khoản?
-                                        <a href="/account/login?urlredirect=%2Fcheckouts%2Fea62e7280dfa4cb1b45227b98a005d1e%3Fstep%3D1">Đăng nhập</a>
-                                    </p>*@
                                     <div class="fieldset">
                                         <div class="field field-required">
                                             <div class="field-input-wrapper">

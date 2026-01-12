@@ -235,7 +235,7 @@
 </div>
 <script>
     $(document).ready(function () {
-        var dataProduct = HuyHoang.getListOrder();
+        var dataProduct = vuongQuanTuan.getListOrder();
         console.log(dataProduct);
         if (dataProduct != null && dataProduct != undefined && dataProduct.length > 0) {
 
@@ -312,8 +312,8 @@
             }
             input.val(quantity);
             $("#price-cart-" + idPrice).text(NumberFormat(price * quantity) + "₫");
-            HuyHoang.updateQtyOrder(idPrice, quantity, color, size);
-            UpdateTotalCount(HuyHoang.getListOrder());
+            vuongQuanTuan.updateQtyOrder(idPrice, quantity, color, size);
+            UpdateTotalCount(vuongQuanTuan.getListOrder());
         });
         $(".qty-click .qtyminus").on('click', function (e) {
             e.preventDefault();
@@ -329,16 +329,16 @@
             }
             input.val(quantity);
             $("#price-cart-" + idPrice).text(NumberFormat(price * quantity) + "₫");
-            HuyHoang.updateQtyOrder(idPrice, quantity, color, size);
-            UpdateTotalCount(HuyHoang.getListOrder());
+            vuongQuanTuan.updateQtyOrder(idPrice, quantity, color, size);
+            UpdateTotalCount(vuongQuanTuan.getListOrder());
         });
         $(".itemVariantCart .deleteItem").on('click', function (e) {
             e.preventDefault();
             var idPro = $(this).attr('data-variant');
             var color = $(this).attr("data-color");
             var size = $(this).attr("data-size");
-            HuyHoang.deleteOrder(idPro, color, size);
-            var dataProduct = HuyHoang.getListOrder();
+            vuongQuanTuan.deleteOrder(idPro, color, size);
+            var dataProduct = vuongQuanTuan.getListOrder();
             UpdateTotalCount(dataProduct);
             LoadProductData(dataProduct);
         });

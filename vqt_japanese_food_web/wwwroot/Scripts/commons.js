@@ -6,7 +6,7 @@ function NumberFormat(number) {
 	return new Intl.NumberFormat().format(number);
 }
 /************** HuyHoang ******************/
-var VQT = {
+var vuongQuanTuan = {
 	addToCard: function (item) {
 		var Items = localStorage.getItem("cart");
 		if (Items != null) {

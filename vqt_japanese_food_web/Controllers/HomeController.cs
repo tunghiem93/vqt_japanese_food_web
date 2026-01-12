@@ -32,46 +32,53 @@ namespace vqt_japanese_food_web.Controllers
         public async Task<IActionResult> Index()
         {
             var model = new HomeViewModels();
+
             try
             {
-                var Catalog = await _context.Catalogs
-                    .Where(z => !z.IsDelete && z.IsActive)
-                    .OrderBy(z => z.CreatedAt)
+                // ===== Catalogs (Top 5)
+                model.Catalogs = await _context.Catalogs
+                    .AsNoTracking()
+                    .Where(x => !x.IsDelete && x.IsActive)
+                    .OrderBy(x => x.CreatedAt)
                     .Take(5)
-                    .Select(z => new CatalogDto
+                    .Select(x => new CatalogDto
                     {
-                        Id = z.Id,
-                        Name = z.Name,
+                        Id = x.Id,
+                        Name = x.Name
+                    })
+                    .ToListAsync();
 
-                    }).ToListAsync();
-
-                model.Catalogs = Catalog;
-
-                var Category = await _context.Categorys
-                    .Where(z => !z.IsDelete && z.IsActive)
-                    .OrderBy(o => o.CreatedAt)
+                // ===== Categories (Top 10)
+                model.Categories = await _context.Categorys
+                    .AsNoTracking()
+                    .Where(x => !x.IsDelete && x.IsActive)
+                    .OrderBy(x => x.CreatedAt)
                     .Take(10)
-                    .Select(z => new CategoryDto
+                    .Select(x => new CategoryDto
                     {
-                        Id = z.Id,
-                        Name = z.Name,
-                        CatalogId = z.CatalogId,
-                        CatalogName = z.Catalog.Name,
-                    }).ToListAsync();
+                        Id = x.Id,
+                        Name = x.Name,
+                        CatalogId = x.CatalogId,
+                        CatalogName = x.Catalog.Name
+                    })
+                    .ToListAsync();
 
-                model.Categories = Category;
-
-                var productSales = await _context.Products
-                    .Where(z => !z.IsDelete && z.IsActive
-                        && z.IsOnSale && z.DiscountId.HasValue 
-                        && z.DiscountId.Value > 0)
-                    .Select(s => new ProductDto()
+                // ===== Product Sales (Top 15)
+                model.ProductSales.Products = await _context.Products
+                    .AsNoTracking()
+                    .Where(p => !p.IsDelete && p.IsActive
+                             && p.IsOnSale
+                             && p.DiscountId.HasValue
+                             && p.DiscountId > 0)
+                    .OrderByDescending(p => p.CreatedAt)
+                    .Take(15)
+                    .Select(p => new ProductDto
                     {
-                        Id = s.Id,
-                        Code = s.Code,
-                        Name = s.Name,
-                        CategoryName = s.Category.Name,
-                        Images = s.Images
+                        Id = p.Id,
+                        Code = p.Code,
+                        Name = p.Name,
+                        CategoryName = p.Category.Name,
+                        Images = p.Images
                             .OrderBy(i => i.SortOrder)
                             .Select(i => new ImageDto
                             {
@@ -81,19 +88,76 @@ namespace vqt_japanese_food_web.Controllers
                                 ImageUrl = i.ImageUrl,
                                 ProductId = i.ProductId
                             }).ToList(),
-                        IsActive = s.IsActive,
-                        IsDelete = s.IsDelete,
-                        CreatedAt = s.CreatedAt,
-                        CreatedBy = s.CreatedBy,
-                        UpdatedAt = s.UpdatedAt,
-                        UpdatedBy = s.UpdatedBy
-                    }).OrderByDescending(z => z.CreatedAt)
-                    .Take(15)
+                        IsActive = p.IsActive,
+                        IsDelete = p.IsDelete,
+                        CreatedAt = p.CreatedAt,
+                        CreatedBy = p.CreatedBy,
+                        UpdatedAt = p.UpdatedAt,
+                        UpdatedBy = p.UpdatedBy
+                    })
                     .ToListAsync();
 
-                model.ProductSales.Products = productSales;
+                // ===== Load ALL data once
+                var catalogs = await _context.Catalogs
+                    .AsNoTracking()
+                    .Where(x => !x.IsDelete && x.IsActive)
+                    .OrderBy(x => x.CreatedAt)
+                    .ToListAsync();
+
+                var categories = await _context.Categorys
+                    .AsNoTracking()
+                    .Where(x => !x.IsDelete && x.IsActive)
+                    .OrderBy(x => x.CreatedAt)
+                    .ToListAsync();
+
+                var products = await _context.Products
+                    .AsNoTracking()
+                    .Where(x => !x.IsDelete && x.IsActive)
+                    .OrderByDescending(x => x.CreatedAt)
+                    .Select(p => new ProductDto
+                    {
+                        Id = p.Id,
+                        Code = p.Code,
+                        Name = p.Name,
+                        CategoryName = p.Category.Name,
+                        CategoryId = p.CategoryId,
+                        Images = p.Images
+                            .OrderBy(i => i.SortOrder)
+                            .Select(i => new ImageDto
+                            {
+                                Id = i.Id,
+                                Alt = i.Alt,
+                                Title = i.Title,
+                                ImageUrl = i.ImageUrl,
+                                ProductId = i.ProductId
+                            }).ToList(),
+                        CreatedAt = p.CreatedAt
+                    })
+                    .ToListAsync();
+
+                model.Products = catalogs.Select(c => new CatalogViewModel
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    Categories = categories
+                        .Where(cat => cat.CatalogId == c.Id)
+                        .Select(cat => new CategoryViewModel
+                        {
+                            Id = cat.Id,
+                            Name = cat.Name,
+                            Products = products
+                                .Where(p => p.CategoryId == cat.Id)
+                                .Take(10)
+                                .ToList()
+                        }).ToList()
+                }).ToList();
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                //_logger.LogError(ex, "Home Index error");
+                throw;
+            }
+
             return View(model);
         }
 

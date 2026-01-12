@@ -4,7 +4,7 @@
 @{
     var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
 }
-@model HuyHoangDATN.Models.Product.ProductColorViewDTO
+@model JapaneseFood.Model.Product.ProductDto
 <div>
     <button type="button" class="close" data-dismiss="modal">
         <img src="//file.hstatic.net/1000360430/file/iconclose_32c1d6a3da3545278283605bbfca0b0b.png" alt="Đóng">
@@ -38,44 +38,14 @@
                         Màu sắc
                         <span class="nameColor"></span>
                     </div>
-                    <div class="select-swap">
-                        @if (Model.ListColors != null && Model.ListColors.Any())
-                        {
-                            var zIndex = 1;
-                            foreach (var color in Model.ListColors)
-                            {
-                                var clazz = zIndex == 1 ? "sd" : "";
-
-                                <div data-value="@color.Name" class=" n-sd swatch-element color  @color.Code ">
-                                    <input class="variant-0" id="swatch-0-@color.Code" type="radio" name="option2" value="@color.Name" data-vhandle="@color.Code" data-trigger="@color.Code">
-                                    <label data-handle="@color.Code" class="@color.Code @clazz" for="swatch-0-@color.Code" data-color-code="@color.Code" data-color-name="@color.Name">
-                                        <img src="@Url.Content("~/Uploads/Color/"+ string.Format("{0}.{1}", color.Code, "png"))" alt="@color.Name">
-                                    </label>
-                                </div>
-                                zIndex = zIndex + 1;
-                            }
-                        }
-                    </div>
+                    
                 </div>
                 <div id="variant-swatch-1" class=" swatch clearfix" data-option="option2" data-option-index="1">
                     <div class="header">
                         Kích thước
 
                     </div>
-                    <div class="select-swap">
-                        @if (Model.ListSizes != null && Model.ListSizes.Any())
-                        {
-                            foreach (var size in Model.ListSizes)
-                            {
-                                <div data-value="@size" class="n-sd swatch-element  @size ">
-                                    <input class="variant-1" id="swatch-1-@size" type="radio" name="option1" value="@size" data-vhandle="@size" data-trigger="@size" />
-                                    <label for="swatch-1-@size">
-                                        <span>@size</span>
-                                    </label>
-                                </div>
-                            }
-                        }
-                    </div>
+                    
                 </div>
             </div>
             <div class="selector-actions">
@@ -109,50 +79,9 @@
                         </li>
                         <li>
                             <span class="infobe">Chất liệu:</span>
-                            <span class="infoaf">@Model.Material</span>
+                            <span class="infoaf">@Model.Quantity</span>
                         </li>
-                        <li>
-                            <span class="infobe">Màu sắc:</span>
-                            <span class="infoaf">
-                                @if (Model.ListColors != null && Model.ListColors.Any())
-                                {
-                                    var strColor = "";
-                                    foreach (var color in Model.ListColors)
-                                    {
-                                        if (string.IsNullOrEmpty(strColor))
-                                        {
-                                            strColor = color.Name;
-                                        }
-                                        else
-                                        {
-                                            strColor = strColor + " - " + color.Name;
-                                        }
-                                    }
-                                    <span>@strColor</span>
-                                }
-                            </span>
-                        </li>
-                        <li>
-                            <span class="infobe">Kích cỡ:</span>
-                            <span class="infoaf">
-                                @if (Model.ListSizes != null && Model.ListSizes.Any())
-                                {
-                                    var strSize = "";
-                                    foreach (var size in Model.ListSizes)
-                                    {
-                                        if (string.IsNullOrEmpty(strSize))
-                                        {
-                                            strSize = size;
-                                        }
-                                        else
-                                        {
-                                            strSize = strSize + " - " + size;
-                                        }
-                                    }
-                                    <span>@strSize</span>
-                                }
-                            </span>
-                        </li>
+                        
                     </ul>
                 </div>
             </div>
@@ -171,7 +100,7 @@
             </div>
         </div>
         <center class="centerDetial">
-            <a href="@Url.Action("Detail", "Product", new { q = Model.Alias })">
+            <a href="@Url.Action("Detail", "Product", new { q = Model.Id })">
                 Xem chi tiết sản phẩm &gt;&gt;
             </a>
         </center>
@@ -183,7 +112,7 @@
                 @foreach (var image in Model.Images)
                 {
                     <div class="product-thumb text-center">
-                        <img class="product-image-feature" src="@Url.Content(image.ImageURL)" alt="@Model.Name">
+                        <img class="product-image-feature" src="@Url.Content(image.ImageUrl)" alt="@Model.Name">
                     </div>
                 }
             </div>
@@ -203,11 +132,11 @@
         {
             foreach (var image in Model.Images)
             {
-                <div name-new="@Model.Code" class="item itemdelete @image.Color" data-original="@Url.Content(image.ImageURL)" data-option="@image.Color" data-variant="@Model.Code">
-                    <a href="@Url.Content(image.ImageURL)" title="Click để xem" data-option="@image.Color" data-image="@Url.Content(image.ImageURL)" data-zoom-image="@Url.Content(image.ImageURL)" rel="lightbox-@image.Color">
-                        <img class="removeImgMobile hidden-xs img-fluid img-responsive" src="@Url.Content(image.ImageURL)">
-                        <img class="removeImgDesktop visible-xs img-fluid img-responsive" src="@Url.Content(image.ImageURL)">
-                        <p class="click-p" href="@Url.Content(image.ImageURL)" data-zoom-image="@Url.Content(image.ImageURL)" rel="lightbox-@image.Color">
+                <div name-new="@Model.Code" class="item itemdelete" data-original="@Url.Content(image.ImageUrl)" data-variant="@Model.Code">
+                    <a href="@Url.Content(image.ImageUrl)" title="Click để xem" data-image="@Url.Content(image.ImageUrl)" data-zoom-image="@Url.Content(image.ImageUrl)" rel="lightbox">
+                        <img class="removeImgMobile hidden-xs img-fluid img-responsive" src="@Url.Content(image.ImageUrl)">
+                        <img class="removeImgDesktop visible-xs img-fluid img-responsive" src="@Url.Content(image.ImageUrl)">
+                        <p class="click-p" href="@Url.Content(image.ImageUrl)" data-zoom-image="@Url.Content(image.ImageUrl)" rel="lightbox">
                             <i class="fa fa-search" aria-hidden="true"></i>
                             Click xem hình lớn hơn
                         </p>
@@ -221,8 +150,8 @@
         {
             foreach (var image in Model.Images)
             {
-                <div class="  thumbnail thumdelete clickItem" data-option="@image.Color" data-zoom="@Url.Content(image.ImageURL)">
-                    <img class="img-fluid img-thumbnail" src="@Url.Content(image.ImageURL)">
+                <div class="thumbnail thumdelete clickItem" data-zoom="@Url.Content(image.ImageUrl)">
+                    <img class="img-fluid img-thumbnail" src="@Url.Content(image.ImageUrl)">
                 </div>
             }
         }
@@ -358,9 +287,9 @@
                             ColorName: ColorName,
                             Size: Size,
                             ImageURL: ImageURL,
-                            LinkURL: '@Url.Action("Detail", "Product", new { q = Model.Alias })'
+                            LinkURL: '@Url.Action("Detail", "Product", new { q = Model.Id })'
                         }
-                        HuyHoang.addToCard(Item)
+                    vuongQuanTuan.addToCard(Item)
                         $("#site-cart-handle").click();
                     } else {
                         swal({

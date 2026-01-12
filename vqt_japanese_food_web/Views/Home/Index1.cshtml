@@ -1,0 +1,155 @@
+﻿@model HuyHoangDATN.Models.Product.ProductViewDTO
+@{
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+}
+
+<div>
+    <main class="main-index">
+        <h1 class="hidden">HuyHoang</h1>
+        <section id="sectionBannerMain" class="trackingBannerHome1">
+            <a href="@Url.Action("Index", "Home")">
+                <img class="hidden-xs" src="@Url.Content("~/Uploads/Slider/slider01.jpg")" alt="Túi xách nhỏ họa tiết hoa khô" />
+                <img class="visible-xs" src="https://file.hstatic.net/1000003969/file/vitamin_summer_kv__final_700x800_a36f0b53d3f34d1b9c60353de11101c7.jpg" alt="Túi xách nhỏ họa tiết hoa khô" />
+            </a>
+        </section>
+        <section id="sectionBannerHome" class="clearfix">
+            <div class="sliderMobileBannerHome wrapper-new styleAnimteBanner styleArrowSlick">
+                @if (Model.Top3Product != null && Model.Top3Product.Any())
+                {
+                    foreach (var product in Model.Top3Product)
+                    {
+                        <div class="col-xs-12 col-sm-4 trackingBannerHome2">
+                            <div class="animateBanner marginTopbanner">
+                                <a href="@Url.Action("Detail", "Product", new { q = product.Id })">
+                                    <img class="lazyload" height="450" width="405" src="@Url.Content(product.ImageURL)" data-src="@Url.Content(product.ImageURL)" alt="@product.Name" />
+                                </a>
+                            </div>
+                            <div class="infoBannerHome">
+                                <h5>
+                                    <a href="@Url.Action("Detail", "Product", new { q = product.Id })">
+                                        @product.Name
+                                    </a>
+                                </h5>
+                                <a class="viewMore3Banner" href="@Url.Action("Detail", "Product", new { q = product.Id })">
+                                    XEM CHI TIẾT
+                                </a>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </section>
+        @if (Model.Catalogs != null && Model.Catalogs.Any())
+        {
+            foreach (var catalog in Model.Catalogs)
+            {
+                <section id="sectionHomeTabCollection_@catalog.Id" class="clearfix section section-collection">
+                    <div class="container-fluid">
+                        <div class="sectionTitleTab clearfix">
+                            <h2>
+                                <a href="@Url.Action("Index", "Product", new { c = catalog.Id })"> @catalog.Name </a>
+                            </h2>
+                            <div class="outerTabTitle">
+                                @if (catalog.Categories != null && catalog.Categories.Any())
+                                {
+                                    var First = 1;
+                                    <ul class="tabTitle">
+                                        @foreach (var category in catalog.Categories)
+                                        {
+                                            var clazz = First == 1 ? "active" : "";
+                                            <li class="@clazz" data-slide="tab1_slide_@string.Format("{0}_{1}", catalog.Id, category.Id)">
+                                                <a data-toggle="tab" href="#tabcollection-@string.Format("{0}_{1}", catalog.Id, category.Id)" data-handle="@category.LinkPath">
+                                                    @category.Name
+                                                </a>
+                                            </li>
+                                            First = First + 1;
+                                        }
+                                    </ul>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="sectionContentTab styleArrowSlick">
+                            @if (catalog.Categories != null && catalog.Categories.Any())
+                            {
+                                var First = 1;
+                                <div class="tab-content">
+                                    @foreach (var category in catalog.Categories)
+                                    {
+                                        var clazz = First == 1 ? "in active" : "";
+                                        var data_get = First == 1 ? "true" : "false";
+                                        <div id="tabcollection-@string.Format("{0}_{1}", catalog.Id, category.Id)" class="clearfix tab-pane @clazz" data-get="@data_get" data-slide="tab1_slide_@string.Format("{0}_{1}", catalog.Id, category.Id)">
+                                            <div class="product-lists-home">
+                                                @if (category.Products != null && category.Products.Any())
+                                                {
+                                                    foreach (var product in category.Products)
+                                                    {
+                                                        <div class="product-resize col-xs-6 col-sm-3 pro-loop">
+                                                            <div class="product-block" data-anmation="1">
+                                                                <div class="product-img image-resize">
+                                                                    <a href="@Url.Action("Detail", "Product", new { q = product.Id })" onclick="window.location.href = '@Url.Action("Detail", "Product", new { q = product.Alias })';" title="Mã sản phẩm: @product.Code">
+                                                                        <picture>
+                                                                            <img class="img-loop lazyload" src="@Url.Content(product.ImageURL)" data-src="@Url.Content(product.ImageURL)" alt="@product.Name" />
+                                                                        </picture>
+
+                                                                        <picture>
+                                                                            <img class="img-loop img-hover lazyload" src="@Url.Content(product.ImageURL)" data-src="@Url.Content(product.ImageURL)" alt="@product.Name" />
+                                                                        </picture>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="product-detail clearfix">
+                                                                    <div class="variantColor">
+                                                                        @if (product.ListColors != null && product.ListColors.Any())
+                                                                        {
+                                                                            <ul>
+                                                                                @foreach (var color in product.ListColors)
+                                                                                {
+                                                                                    <li class="" data-filter="@color.Name" data-color="?color=@color.Code">
+                                                                                        <a href="javascript:void(0);" data-img="@Url.Content(color.ImageURL)" data-img-hover="@Url.Content(color.ImageURL)">
+                                                                                            <img class="lazyload" src="@Url.Content("~/Uploads/Color/" + string.Format("{0}.{1}", color.Code, "png"))" data-src="@Url.Content("~/Uploads/Color/" + string.Format("{0}.{1}", color.Code, "png"))" alt="color_@string.Format("{0}_", color.Code)" />
+                                                                                        </a>
+                                                                                    </li>
+                                                                                }
+                                                                            </ul>
+                                                                        }
+
+                                                                    </div>
+                                                                    <div class="box-pro-detail">
+                                                                        <h3 class="pro-name">
+                                                                            <a href="@Url.Action("Detail", "Product", new { q = product.Id })" title="@product.Name">
+                                                                                @product.Name
+                                                                            </a>
+                                                                        </h3>
+                                                                        <div class="box-pro-prices">
+                                                                            <p class="pro-price highlight">
+                                                                                @String.Format(info, "{0:c0}", product.Price)
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="activeLabelStatus">
+                                                                    <div class="labelNewNew styleTogetherLabel">MẪU MỚI</div>
+                                                                </div>
+                                                                <div class="actionLoop visible-lg">
+                                                                    <a class="quickView styleBtnBuy notClick" data-handle="@Url.Action("Quickview", "Home", new { q = product.Id })"><i class="fa fa-shopping-cart"></i> Mua nhanh</a>
+                                                                    <a class="styleBtnBuy" href="@Url.Action("Detail", "Product", new { q = product.Id })" onclick="window.location.href = '@Url.Action("Detail", "Product", new { q = product.Alias })';"><i class="fa fa-eye"></i> Xem chi tiết</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                }
+
+                                            </div>
+                                        </div>
+                                        First = First + 1;
+                                    }
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </section>
+            }
+        }
+    </main>
+</div>

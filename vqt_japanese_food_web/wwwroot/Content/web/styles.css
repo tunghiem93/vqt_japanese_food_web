@@ -6562,7 +6562,7 @@ img.gifStar {
 #listStore .leftCollumStore {
 	margin:0 0 15px 0;
 }
-.viewMoreHuyHoang a {
+.viewMore a {
 	background: #f9001f;
 	color: white;
 	display: inline-block;
@@ -6572,7 +6572,7 @@ img.gifStar {
 	margin: 10px 0 0 0;
 	font-weight: bold;
 }
-.viewMoreHuyHoang a:hover {
+.viewMore a:hover {
 	background: black;
 }
 .groupInputForm .g-recaptcha {

@@ -18,6 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Home\Index1.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="wwwroot\Content\assets\node_modules\datatables.net-bs4\css\dataTables.bootstrap4.css" />
     <Content Include="wwwroot\Content\assets\node_modules\datatables.net-bs4\css\responsive.dataTables.min.css" />
     <Content Include="wwwroot\Content\assets\node_modules\datetime-picker\css\bootstrap-datetimepicker.css" />
