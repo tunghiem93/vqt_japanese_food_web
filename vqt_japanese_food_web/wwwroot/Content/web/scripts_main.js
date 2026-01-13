@@ -7,72 +7,12 @@ window.insider_object = {
 		"surname": ""
 	}
 }
-var HuyHoang = {
+var vuongQuangTuan = {
 	init: function() {
 		this.Main.init();
 		this.Collection.init();
-		if(window.shop.template == 'index'){
-			this.Index.init();
-		}
-		//if(window.shop.template.indexOf("collection") != -1){
-		//	this.Collection.init();
-		//}
-		//if(window.shop.template.indexOf("psi") != -1){
-		//	this.PSI.init();
-		//}
-		//if(window.shop.template == 'collection.sale-online'){
-		//	this.SaleOnline.init();
-		//}
-		//if(window.shop.template == 'collection.campaign'){
-		//	this.Campaign.init();
-		//}
-		//if(window.shop.template == 'cart'){
-		//	this.Cart.init();
-		//}
-		//if(window.shop.template == 'collection.walk-freely'){
-		//	this.WalkFreely.init();
-		//}
-		//if(window.shop.template == 'collection.detail_collections'){
-		//	this.DetailCollections.init();
-		//}
-		//if(window.shop.template.indexOf("store") != -1){
-		//	this.Store.init();
-		//}
-		//if(window.shop.template.indexOf("clear-online") != -1){
-		//	this.ClearOnline.init();
-		//}
-		//if(window.shop.template.indexOf("running-sale") != -1){
-		//	this.RunningSale.init();
-		//}
-		//if(window.shop.template.indexOf("ldp-app-combo") != -1){
-		//	this.LdpAppCombo.init();
-		//}
-		//if(window.shop.template == 'collection.ldp-september' || window.shop.template == 'collection.ldp-sneaker'){
-		//	this.LdpSeptember.init();
-		//}
-		//if(window.shop.template == 'customers[register]'){
-		//	this.Register.init();
-		//}
-		//if(window.shop.template.indexOf("black-friday") != -1){
-		//	this.BlackFriday2019.init();
-		//}
-		//if(window.shop.template.indexOf("ldp-promotion-30") != -1){
-		//	this.Promotion30.init();
-		//}
-		//if(window.shop.template.indexOf("product.") != -1 || window.shop.template == "product"){
-		//	this.Product.init();
-		//}
-		//if(window.shop.template.indexOf("customers") != -1){
-		//	this.CustomerAccount.init();
-		//}
-		//if(window.shop.template.indexOf("blog") != -1){
-		//	this.Blog.init();
-		//}
-		//if(window.shop.template.indexOf("article") != -1){
-		//	this.Article.init();
-		//}
-		//if(window.shop.template.indexOf("page") != -1){
-		//	this.Page.init();
+		//if(window.shop.template == 'index'){
+		//	this.Index.init();
 		//}
 	},
 
@@ -80,13 +20,13 @@ var HuyHoang = {
 		var Items = localStorage.getItem("cart");
 		if (Items != null) {
 			var Orders = JSON.parse(Items)
-			var hasItem = Orders.some((o) => { return (o.Id == item.Id && o.Size == item.Size && o.ColorCode == item.ColorCode) })
+			var hasItem = Orders.some((o) => { return (o.Id == item.Id) })
 			if (hasItem == false) {
 				Orders.push(item)
 			}
 			else {
 				$.each(Orders, function (index, _item) {
-					if (_item.Id === item.Id && _item.Size == item.Size && _item.ColorCode == item.ColorCode) {
+					if (_item.Id === item.Id) {
 						_item.Qty = parseInt(_item.Qty) + parseInt(item.Qty)
 					}
 				});
@@ -125,13 +65,13 @@ var HuyHoang = {
 		}
 		$('.count').text(Total)
 	},
-	updateQtyOrder: function (id, quantity, color, size) {
+	updateQtyOrder: function (id, quantity) {
 		var Items = localStorage.getItem("cart");
 		var Total = 0;
 		if (Items != null) {
 			var Orders = JSON.parse(Items);
 			$.each(Orders, function (index, _item) {
-				if (_item.Id === id && _item.ColorCode === color && _item.Size === size) {
+				if (_item.Id === id) {
 					_item.Qty = quantity;
 					Total = Total + quantity;
 				} else {
@@ -145,14 +85,14 @@ var HuyHoang = {
 		}
 		$('.count').text(Total);
 	},
-	deleteOrder: function (id, color, size) {
+	deleteOrder: function (id) {
 		var Items = localStorage.getItem("cart");
 		var Total = 0;
 		if (Items != null) {
 			var Orders = JSON.parse(Items);
 			var indexItem = -1;
 			$.each(Orders, function (index, _item) {
-				if (_item.Id === id && _item.ColorCode === color && _item.Size === size) {
+				if (_item.Id === id) {
 					indexItem = index;
 				} else {
 					Total = Total + parseInt(_item.Qty);
@@ -169,8 +109,8 @@ var HuyHoang = {
 	}
 }
 $(document).ready(function() {
-	HuyHoang.init();
-	lazyload();
+	vuongQuangTuan.init();
+	//lazyload();
 
 	$(".swatch-element").mouseout(function () {
 		 var value = $("#mainDetailProduct #add-item-form .select-swap .color label.sd span").html();
@@ -182,7 +122,7 @@ $(document).ready(function() {
 		$(this).parents(".swatch").find(".header span").html(value);
 	});
 })
-HuyHoang.Main = {
+vuongQuangTuan.Main = {
 	init: function(){
 		this.colorVariant();
 		this.mmMenu();
@@ -192,7 +132,7 @@ HuyHoang.Main = {
 		this.quickview();
 		this.limitCart();
 		this.submitEmail();
-		this.promotionTopAllPage();
+		//this.promotionTopAllPage();
 		this.backToTop();
 		this.removeItemClick();
 		this.sliderSuggest();
@@ -301,7 +241,7 @@ HuyHoang.Main = {
 			if (id == idVariant2){
 				localStorage.removeItem("idVariant2");
 			}
-			HuyHoang.Main.removeItem();
+			vuongQuangTuan.Main.removeItem();
 		});
 	},
 	promotionTopAllPage: function(){
@@ -816,9 +756,9 @@ HuyHoang.Main = {
 		setTimeout(function(){
 			$('.image-resize').imagesLoaded(function() {
 				$(window).resize();
-				HuyHoang.Main.fixHeightProduct('.product-resize','.image-resize');
+				vuongQuangTuan.Main.fixHeightProduct('.product-resize','.image-resize');
 				$(window).resize(function() {
-					HuyHoang.Main.fixHeightProduct('.product-resize','.image-resize');
+					vuongQuangTuan.Main.fixHeightProduct('.product-resize','.image-resize');
 				});
 			});
 		},5000)
@@ -853,7 +793,7 @@ HuyHoang.Main = {
 		} catch (ex) {}
 	},
 };
-HuyHoang.Index = {
+vuongQuangTuan.Index = {
 	init: function(){
 		this.tabCollection();
 		this.sliderCollection();
@@ -892,12 +832,12 @@ HuyHoang.Index = {
 						$('#sectionHomeTabCollection1 .tab-pane[data-get="false"]').find(".product-lists").html(' ');
 						$('#sectionHomeTabCollection1 .tab-content .tab-pane.active').children('.product-lists-home').append(data);	
 						$("#sectionHomeTabCollection1 .product-lists-home").fadeIn('slow');
-						HuyHoang.Index.clickPanel();
+						vuongQuangTuan.Index.clickPanel();
 
 						setTimeout(function(){
 							lazyload();
-							HuyHoang.Main.colorVariant();
-							HuyHoang.Main.resizeImage();
+							vuongQuangTuan.Main.colorVariant();
+							vuongQuangTuan.Main.resizeImage();
 							$("#sectionHomeTabCollection1 .tabTitle li").removeClass("noClickLi");
 						},300);
 					}
@@ -918,12 +858,12 @@ HuyHoang.Index = {
 						$('#sectionHomeTabCollection2 .tab-pane[data-get="false"]').find(".product-lists").html(' ');
 						$('#sectionHomeTabCollection2 .tab-content .tab-pane.active').children('.product-lists-home').append(data);	
 						$("#sectionHomeTabCollection2 .product-lists-home").fadeIn('slow');	
-						HuyHoang.Index.clickPanel();	
+						vuongQuangTuan.Index.clickPanel();	
 
 						setTimeout(function(){
 							lazyload();
-							HuyHoang.Main.colorVariant();
-							HuyHoang.Main.resizeImage();	
+							vuongQuangTuan.Main.colorVariant();
+							vuongQuangTuan.Main.resizeImage();	
 							$("#sectionHomeTabCollection2 .tabTitle li").removeClass("noClickLi");
 						},300);
 					}
@@ -944,12 +884,12 @@ HuyHoang.Index = {
 						$('#sectionHomeTabCollection4 .tab-pane[data-get="false"]').find(".product-lists").html(' ');
 						$('#sectionHomeTabCollection4 .tab-content .tab-pane.active').children('.product-lists-home').append(data);	
 						$("#sectionHomeTabCollection4 .product-lists-home").fadeIn('slow');	
-						HuyHoang.Index.clickPanel();	
+						vuongQuangTuan.Index.clickPanel();	
 
 						setTimeout(function(){
 							lazyload();
-							HuyHoang.Main.colorVariant();
-							HuyHoang.Main.resizeImage();	
+							vuongQuangTuan.Main.colorVariant();
+							vuongQuangTuan.Main.resizeImage();	
 							$("#sectionHomeTabCollection4 .tabTitle li").removeClass("noClickLi");
 						},300);
 					}
@@ -1025,7 +965,7 @@ HuyHoang.Index = {
 		}
 	},
 };
-HuyHoang.Collection = { 
+vuongQuangTuan.Collection = { 
 	init: function(){
 		this.filterMobile();
 		this.removeDiv();
@@ -1063,7 +1003,7 @@ HuyHoang.Collection = {
 		});
 	},
 };
-HuyHoang.Product = {
+vuongQuangTuan.Product = {
 	init: function(){
 		this.removeMobile();
 		this.setSessionURL();
@@ -1080,7 +1020,7 @@ HuyHoang.Product = {
 		}
 	}
 };
-HuyHoang.Blog = {
+vuongQuangTuan.Blog = {
 	init: function(){
 		this.setSessionURL();
 	},
@@ -1089,7 +1029,7 @@ HuyHoang.Blog = {
 		sessionStorage.setItem("urlAfterLogin", url);
 	}
 };
-HuyHoang.Article = {
+vuongQuangTuan.Article = {
 	init: function(){
 		this.setSessionURL();
 	},
@@ -1098,7 +1038,7 @@ HuyHoang.Article = {
 		sessionStorage.setItem("urlAfterLogin", url);
 	}
 };
-HuyHoang.Page = {
+vuongQuangTuan.Page = {
 	init: function(){
 		this.setSessionURL();
 	},
@@ -1107,7 +1047,7 @@ HuyHoang.Page = {
 		sessionStorage.setItem("urlAfterLogin", url);
 	}
 };
-HuyHoang.SaleOnline = { 
+vuongQuangTuan.SaleOnline = { 
 	init: function(){
 		this.countDownSaleOnline();
 	},
@@ -1119,7 +1059,7 @@ HuyHoang.SaleOnline = {
 		});
 	},
 };
-HuyHoang.ProductNew = { 
+vuongQuangTuan.ProductNew = { 
 	init: function(){
 		this.slickProductNew();
 	},
@@ -1155,7 +1095,7 @@ HuyHoang.ProductNew = {
 		}
 	},
 };
-HuyHoang.Cart = {
+vuongQuangTuan.Cart = {
 	init: function(){
 		this.slideProductInCart();
 	},
@@ -1181,7 +1121,7 @@ HuyHoang.Cart = {
 		});
 	},
 }
-HuyHoang.Store = { 
+vuongQuangTuan.Store = { 
 	init: function(){
 		this.sliderStore();
 	},
@@ -1206,7 +1146,7 @@ HuyHoang.Store = {
 		});
 	},
 };
-HuyHoang.Campaign = { 
+vuongQuangTuan.Campaign = { 
 	init: function(){
 		this.promotionCountCampaign();
 		this.fixedMenuCampaign();
@@ -1290,7 +1230,7 @@ HuyHoang.Campaign = {
 	}
 
 };
-HuyHoang.WalkFreely = {
+vuongQuangTuan.WalkFreely = {
 	init: function(){
 		this.promotionCountWalkFreely();
 		this.slideStar();
@@ -1312,7 +1252,7 @@ HuyHoang.WalkFreely = {
 		});
 	},
 };
-HuyHoang.DetailCollections = {
+vuongQuangTuan.DetailCollections = {
 	init: function(){
 		this.countDetailCollections();
 		this.quickView();
@@ -1350,12 +1290,12 @@ HuyHoang.DetailCollections = {
 			if($(this).parents("#add-item-form").find('label.sd').length == $(this).parents("#add-item-form").find('div[id*=variant-swatch-]').length){
 				e.preventDefault();
 				$(this).addClass('clicked_buy');
-				add_item_show_modalCart($(this).parents("#add-item-form").find('#product-select').val());
+				//add_item_show_modalCart($(this).parents("#add-item-form").find('#product-select').val());
 				getCartModal();
 			}else{
 				swal({
 					type: 'error',
-					text: 'Vui lòng chọn size hoặc màu mà bạn thích. Xin cảm ơn. '
+					text: 'Please choose your favorite dish. Thank you.'
 				});
 			}
 		})
@@ -1385,7 +1325,7 @@ HuyHoang.DetailCollections = {
 		});
 	},
 };
-HuyHoang.PSI = {
+vuongQuangTuan.PSI = {
 	init: function(){
 		this.getUrl();
 	},
@@ -1395,21 +1335,21 @@ HuyHoang.PSI = {
 		if (save == null){
 			localStorage.setItem("urlPsi",window.location.href);
 			var href =  window.location.href;
-			window.location = href + "?view=HuyHoang-system";
+			window.location = href + "?view=vuongQuangTuan-system";
 		}else{
 			if (admin == null){
 				var href =  window.location.href;
-				window.location = href + "?view=HuyHoang-system";
+				window.location = href + "?view=vuongQuangTuan-system";
 			}else{
 				swal({
 					type: 'success',
-					text: "Welcome to Family HuyHoang",
+					text: "Welcome to Family vuongQuangTuan",
 				});
 			}
 		}
 	},
 };
-HuyHoang.ClearOnline = { 
+vuongQuangTuan.ClearOnline = { 
 	init: function(){
 		this.promotionCountClearOnline();
 		this.formSubmit();
@@ -1446,7 +1386,7 @@ HuyHoang.ClearOnline = {
 		});
 	},
 };
-HuyHoang.RunningSale = { 
+vuongQuangTuan.RunningSale = { 
 	init: function(){
 		this.promotionCountRunningSale();
 		this.formSubmit();
@@ -1478,7 +1418,7 @@ HuyHoang.RunningSale = {
 		});
 	},
 };
-HuyHoang.LdpSeptember = { 
+vuongQuangTuan.LdpSeptember = { 
 	init: function(){
 		this.countDownSeptember();
 	},
@@ -1490,7 +1430,7 @@ HuyHoang.LdpSeptember = {
 		});
 	},
 };
-HuyHoang.LdpAppCombo = { 
+vuongQuangTuan.LdpAppCombo = { 
 	init: function(){
 		this.promotionCountAppCombo();
 	},
@@ -1521,7 +1461,7 @@ HuyHoang.LdpAppCombo = {
 		});
 	},
 };
-HuyHoang.Register = {
+vuongQuangTuan.Register = {
 	init: function(){
 		this.checkEmail();
 	},
@@ -1538,7 +1478,7 @@ HuyHoang.Register = {
 		});
 	},
 };
-HuyHoang.BlackFriday2019 = {
+vuongQuangTuan.BlackFriday2019 = {
 	init: function(){
 		this.promotionCountBlackFriday();
 		this.formSubmit();
@@ -1605,7 +1545,7 @@ HuyHoang.BlackFriday2019 = {
 		});
 	},
 };
-HuyHoang.Promotion30 = {
+vuongQuangTuan.Promotion30 = {
 	init: function(){
 		this.promotionCount30();
 	},
@@ -1617,7 +1557,7 @@ HuyHoang.Promotion30 = {
 		});
 	},
 };
-HuyHoang.CustomerAccount = {
+vuongQuangTuan.CustomerAccount = {
 	init: function(){
 
 	},

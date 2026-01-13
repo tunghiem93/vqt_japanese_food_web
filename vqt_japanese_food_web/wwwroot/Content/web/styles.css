@@ -323,7 +323,7 @@ HEADER
 	display: flex;
 	-webkit-justify-content:center;
 	-moz-justify-content:center;
-	justify-content:center;
+	justify-content:left;
 }
 #nav .main-nav * {
 	-webkit-backface-visibility: hidden;
@@ -5589,7 +5589,7 @@ color: #fff;
 	overflow: auto;
 	position: relative;
 	max-width: 1000px;
-	min-height: 80%;
+	/*min-height: 80%;*/
 }
 #quickview-cart-desktop::-webkit-scrollbar-track
 {
@@ -5619,7 +5619,7 @@ color: #fff;
 	display: none;
 }
 .quickView {
-	border-right: 1px solid white;
+	/*border-right: 1px solid white;*/
 }
 #stock-box {
 	overflow-y: scroll;

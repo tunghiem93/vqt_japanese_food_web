@@ -231,8 +231,8 @@ namespace vqt_japanese_food_web.Areas.Admin.Controllers
                 },
                 new SelectListItem
                 {
-                    Value = ((int)ERoleType.Employee).ToString(),
-                    Text = "Employee"
+                    Value = ((int)ERoleType.Customer).ToString(),
+                    Text = "Customer"
                 }
             };
         }

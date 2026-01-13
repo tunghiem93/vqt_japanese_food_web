@@ -657,7 +657,7 @@
 		line-height: 19px;
 		cursor: pointer;
 	}
-	#vuongQuanTuan-template.product .bottomBar {
+	#vuongQuangTuan-template.product .bottomBar {
 		padding: 15px 0 70px 0;
 	}
 	.titleStorePage {
@@ -1177,8 +1177,8 @@
 		visibility: inherit;
 	}
 	.actionLoop a {
-		float: left;
-		width: 50%;
+		/*float: left;
+		width: 50%;*/
 		color: white;
 		text-align: center;
 		padding: 3px 10px;

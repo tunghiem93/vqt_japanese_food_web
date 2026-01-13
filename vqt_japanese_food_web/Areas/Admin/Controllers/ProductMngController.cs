@@ -37,7 +37,7 @@ namespace vqt_japanese_food_web.Areas.Admin.Controllers
                     CreatedBy = s.CreatedBy,
                     UpdatedAt = s.UpdatedAt,
                     UpdatedBy = s.UpdatedBy
-                }).OrderBy(o => o.CreatedAt).ToListAsync();
+                }).OrderByDescending(o => o.CreatedAt).ToListAsync();
 
             return View(model);
         }

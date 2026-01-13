@@ -82,6 +82,22 @@ namespace vqt_japanese_food_web.Areas.Admin.Controllers
                 .FirstOrDefaultAsync();
 
             var model = _mapper.Map<OrderEntities, OrderDto>(entity);
+            if (model != null)
+            {
+                var details = await (from od in _context.OrderDetails
+                                     join p in _context.Products on od.ProductId equals p.Id
+                                     where od.OrderId == Id
+                                     select new OrderDetailDto
+                                     {
+                                         ProductId = od.ProductId,
+                                         ProductCode = p.Code,
+                                         ProductName = p.Name,
+                                         Price = p.Price,
+                                         Quantity = od.Quantity
+                                     }).ToListAsync();
+
+                model.OrderDetails = details;
+            }
             return View(model);
         }
 

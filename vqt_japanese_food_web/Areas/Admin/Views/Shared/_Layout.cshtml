@@ -1,7 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Http
 @{
-    var user = Context.Session.GetString("user_info") != null ? Newtonsoft.Json.JsonConvert.DeserializeObject<JapaneseFood.Model.UserSessionDto>(Context.Session.GetString("user_info")) : null;
-    
+    var user = Context.Session.GetString("user_info") != null ? Newtonsoft.Json.JsonConvert.DeserializeObject<JapaneseFood.Model.UserSessionDto>(Context.Session.GetString("user_info")) : null;   
 }
 <!DOCTYPE html>
 <html>
@@ -65,7 +64,7 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Huy Hoàng</p>
+            <p class="loader__label">Vuong Quang Tuan</p>
         </div>
     </div>
     <!-- ============================================================== -->
