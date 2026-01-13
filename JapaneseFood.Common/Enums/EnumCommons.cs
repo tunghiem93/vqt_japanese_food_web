@@ -28,8 +28,8 @@ namespace JapaneseFood.Common.Enums
 
         public enum ERoleType
         {
-            [Description("Employee")]
-            Employee = 1,
+            [Description("Customer")]
+            Customer = 1,
             [Description("Admin")]
             Admin = 2
         }

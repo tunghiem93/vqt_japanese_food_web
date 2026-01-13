@@ -14,6 +14,14 @@ namespace JapaneseFood.Common
         /// <summary>
         /// Generate product code (6 characters)
         /// </summary>
+        public static string GenerateActivateCode()
+        {
+            return GenerateRandomCode(8);
+        }
+
+        /// <summary>
+        /// Generate product code (6 characters)
+        /// </summary>
         public static string GenerateProductCode()
         {
             return GenerateRandomCode(6);

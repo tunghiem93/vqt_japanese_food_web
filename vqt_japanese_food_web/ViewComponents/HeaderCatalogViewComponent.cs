@@ -30,3 +30,4 @@ namespace vqt_japanese_food_web.ViewComponents
             return View(catalogs);
         }
     }
+}

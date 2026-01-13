@@ -6,7 +6,9 @@ namespace vqt_japanese_food_web.Models
 {
     public class HomeViewModels : PagingViewModel
     {
-        public int? CategoryId { get; set; }
+        public long? CatalogId { get; set; }
+        public string? CatalogName { get; set; }
+        public long? CategoryId { get; set; }
         public List<string> Banners { get; set; } = new List<string>
         {
             "/images/banner1.jpg",
@@ -17,6 +19,7 @@ namespace vqt_japanese_food_web.Models
         public List<CatalogDto> Catalogs { get; set; } = new List<CatalogDto>();
         public List<CategoryDto> Categories { get; set; } = new List<CategoryDto>();
         public ProductSaleViewModel ProductSales { get; set; } = new ProductSaleViewModel();
+        public List<ProductDto> ProductSearch { get; set; } = new List<ProductDto>();
         public List<CatalogViewModel> Products { get; set; } = new List<CatalogViewModel>();      
        
     }

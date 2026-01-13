@@ -17,5 +17,6 @@ namespace JapaneseFood.Entity.User
         public string? Avatar { get; set; }
         public int Gender { get; set; }
         public int RoleId { get; set; }
+        public string? ActivationCode { get; set; }
     }
 }

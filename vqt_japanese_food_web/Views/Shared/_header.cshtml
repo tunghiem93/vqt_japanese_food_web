@@ -1,9 +1,4 @@
-﻿@using Microsoft.AspNetCore.Http
-@{
-    var user = Context.Session.GetString("customer_info") != null ? Newtonsoft.Json.JsonConvert.DeserializeObject<JapaneseFood.Model.UserSessionDto>(Context.Session.GetString("customer_info")) : null;
-}
-
-<div>
+﻿<div>
     <div id="topbar" class="clearfix hidden-xs">
         <div class="container-fluid clearfix">
             <div class="no-padding col-xs-12 col-sm-8 col-md-6 hidden-xs">
@@ -36,7 +31,7 @@
                 <div class="innerTopRight">
                     <ul>
                         <li>
-                            <span id="site-cart-handle" class="icon-cart" aria-label="Open cart" title="Giỏ hàng">
+                            <span id="site-cart-handle" class="icon-cart" aria-label="Open cart" title="Cart">
                                 <a href="javascript:void(0)" class="count-holder">
                                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                                         <g>
@@ -56,14 +51,9 @@
                             </span>
                         </li>
                         
-                        <li class="hide">
-                            @(user != null) {
-                                <a href="#"><span class="title-info-top">@user.FullName</span></a>
-                            } else {
-                                <a href="#"><span class="title-info-top">Account</span></a>
-                            }                            
-                        </li>
-                        
+                        <li>
+                            @await Component.InvokeAsync("HeaderUser")
+                        </li>                        
                     </ul>
                 </div>
             </div>
@@ -89,7 +79,7 @@
                                 </span>
                             </a>
                         </span>
-                        <span class="icon-cart" title="Giỏ hàng">
+                        <span class="icon-cart" title="Carts">
                             <a href="@Url.Action("Index","Carts")">
                                 <span class="cart-menu" aria-hidden="true">
                                     <svg version="1.1" class="svg-cart" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 27" style="enable-background:new 0 0 24 27;" xml:space="preserve">
@@ -114,6 +104,17 @@
                     </div>
                 </div>
             </div>
+           
+            <div class="no-padding col-xs-12 hidden-sm hidden-xs col-md-2">
+                <div class="searchFormHeader">
+                    @using (Html.BeginForm("Search", "Home", FormMethod.Get, new { @id = "form-create", @class = "form-horizontal searchHeader searchDesktop", @enctype = "multipart/form-data" }))
+                    {
+                        <input type="text" name="q" class="searchInput" placeholder="What should you look for?..." value="" />
+                        <input type="submit" class="btnSearch" />
+                    }
+                </div>
+            </div>
+
             <div class="no-padding col-xs-12 hidden-sm hidden-xs col-md-8">
                 <div class="menu-desktop hidden-sm hidden-xs">
                     <div class="wrap-logo wrap-logp-mb">
@@ -128,15 +129,7 @@
                     </div>
                 </div>
             </div>
-            <div class="no-padding col-xs-12 hidden-sm hidden-xs col-md-2">
-                <div class="searchFormHeader">
-                    @using (Html.BeginForm("Search", "Product", FormMethod.Get, new { @id = "form-create", @class = "form-horizontal searchHeader searchDesktop", @enctype = "multipart/form-data" }))
-                    {
-                        <input type="text" name="q" class="searchInput" placeholder="Bạn cần tìm gì..." value="" />
-                        <input type="submit" class="btnSearch" />
-                    }
-                </div>
-            </div>
+            
             <div class="removeDesktopOptimize visible-xs clearfix">
                 <div class="headerMobile">
                     <a href="#menu-mobile" class="hamburger-menu"><span class="bar"></span></a>
@@ -160,7 +153,7 @@
                                 </span>
                             </a>
                         </span>
-                        <span class="icon-cart" title="Giỏ hàng">
+                        <span class="icon-cart" title="Carts">
                             <a href="@Url.Action("Index","Carts")">
                                 <span class="cart-menu" aria-hidden="true">
                                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

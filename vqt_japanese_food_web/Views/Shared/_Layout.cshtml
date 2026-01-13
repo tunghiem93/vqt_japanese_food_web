@@ -6,8 +6,7 @@
     <meta charset="utf-8" />
     <title>food vqt</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-    <script src="@Url.Content("~/Content/web/jquery.min.1.11.0.js")"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="@Url.Content("~/Content/web/option_selection.js")"></script>
     <script src="@Url.Content("~/Content/web/api.jquery.js")"></script>
     <script src="@Url.Content("~/Content/web/lazyload.js")"></script>
@@ -15,6 +14,11 @@
     <link href="@Url.Content("~/Content/web/plugins-css.css")" rel="stylesheet" />
     <link href="@Url.Content("~/Content/web/styles.css")" rel="stylesheet" />
     <link href="@Url.Content("~/Content/web/responsive.css")" rel="stylesheet" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Food - VQT" />
+    <meta property="og:description" content="Food VQT." />
+    <meta property="og:url" content="https://VQT.com/" />
+    <meta property="og:site_name" content="VQT" />
 
     <script>
         var formatMoney = '{{amount}}₫';
@@ -31,71 +35,6 @@
             limitStatusInProduct: 11
         }
     </script>
-    <script>
-        if (window.shop.template == "customers[account]") {
-            var statusLogin = sessionStorage.getItem("statusLogin");
-            if (statusLogin == "true") {
-                var urlHistory = sessionStorage.getItem("urlAfterLogin");
-                window.location = urlHistory;
-                sessionStorage.setItem("statusLogin", "false");
-            }
-        }
-    </script>
-    <script>
-        function setCookie(key, value, e) {
-            var d = new Date();
-            d.setTime(d.getTime() + (e * 24 * 60 * 60 * 1000));
-            var ee = "expires=" + d.toUTCString();
-            document.cookie = key + "=" + value + "; " + ee + "; path=/";
-        }
-        function getCookie(cname) {
-            var name = cname + "=";
-            var decodedCookie = decodeURIComponent(document.cookie);
-            var ca = decodedCookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                }
-                if (c.indexOf(name) == 0) {
-                    return decodeURIComponent(c.substring(name.length, c.length));
-                }
-            }
-            return "";
-        }
-        function parseQueryString() {
-            var str = window.location.search;
-            var objURL = {};
-            var count = 0;
-            if (str.indexOf("utm") > -1) {
-                count = 1;
-            }
-            str.replace(
-                new RegExp("([^?=&]+)(=([^&]*))?", "g"),
-                function ($0, $1, $2, $3) {
-                    objURL[$1] = $3;
-                }
-            );
-            objURL.count = function () {
-                for (var prop in this) {
-                    if (this.hasOwnProperty(prop))
-                        count = count + 1;
-                }
-                return count - 1;
-            };
-            return objURL;
-        };
-        var href = window.location.href;
-        var param = parseQueryString();
-        if (param.hasOwnProperty('utm_source')) {
-            setCookie('websosanh', JSON.stringify(param), 30);
-        }
-    </script>
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Food - VQT" />
-    <meta property="og:description" content="Food VQT." />
-    <meta property="og:url" content="https://VQT.com/" />
-    <meta property="og:site_name" content="VQT" />
 </head>
 <body id="vqt-template" class="index">
     <div class="main-body">
@@ -105,21 +44,21 @@
 
             @RenderBody()
 
-            @await Html.PartialAsync("_footer")
+            @await Html.PartialAsync("_footer") 
         </div>
     </div>
 
     <div id="site-nav--mobile" class="site-nav style--sidebar">
         <div id="site-cart" class="site-nav-container" tabindex="-1">
             <div class="site-nav-container-last">
-                <p class="title">Giỏ hàng</p>
-                <span class="textCartSide">Bạn đang có <b>0</b> sản phẩm trong giỏ hàng.</span>
+                <p class="title">Shopping Cart</p>
+                <span class="textCartSide">You currently have <b>0</b> items in your cart.</span>
                 <div class="cart-view clearfix">
                     <table id="clone-item-cart" class="table-clone-cart">
                         <tr class="item_2 hidden">
                             <td class="img">
                                 <a href="" title=""><img src="" alt="" /></a>
-                                <span class="hidden labelGiftInCart">HÀNG TẶNG</span>
+                                <span class="hidden labelGiftInCart">GIFT ITEM</span>
                             </td>
                             <td>
                                 <a class="pro-title-view" href="" title=""></a>
@@ -127,43 +66,50 @@
                                 <del class="pro-price-del-view"></del>
                                 <span class="variant"></span>
                                 <span class="pro-quantity-view"></span>
-                                <span class="remove_link remove-cart removePro">
-                                </span>
+                                <span class="remove_link remove-cart removePro"></span>
                             </td>
                         </tr>
                     </table>
                     <table id="cart-view">
                         <tr>
-                            <td>Hiện chưa có sản phẩm</td>
+                            <td>No items yet</td>
                         </tr>
                     </table>
                     <span class="line"></span>
                     <table class="table-total">
                         <tr>
-                            <td class="text-left"><b>TỔNG TIỀN TẠM TÍNH:</b></td>
+                            <td class="text-left"><b>SUBTOTAL:</b></td>
                             <td class="text-right" id="total-view-cart">0₫</td>
                         </tr>
                         <tr>
-                            <td colspan="2"><a href="@Url.Action("CheckOut","Carts")" class="linktocheckout button dark">Tiến hành đặt hàng</a></td>
+                            <td colspan="2">
+                                <a href="@Url.Action("CheckOut", "Cart")" class="linktocheckout button dark">Proceed to Checkout</a>
+                            </td>
                         </tr>
                         <tr>
-                            <td colspan="2"><a href="@Url.Action("Index","Carts")" class="linktocart button dark">Xem chi tiết giỏ hàng <i class="fa fa-arrow-right"></i></a></td>
+                            <td colspan="2">
+                                <a href="@Url.Action("Index", "Cart")" class="linktocart button dark">View Cart Details <i class="fa fa-arrow-right"></i></a>
+                            </td>
                         </tr>
                     </table>
                 </div>
             </div>
         </div>
+
         <div id="site-search" class="site-nav-container" tabindex="-1">
             <div class="site-nav-container-last">
-                <p class="title">Tìm kiếm</p>
+                <p class="title">Search</p>
                 <div class="search-box wpo-wrapper-search">
                     <form action="" class="searchform searchform-categoris ultimate-search navbar-form">
                         <div class="wpo-search-inner">
                             <input type="hidden" name="type" value="product" />
-                            <input required id="inputSearchAuto" name="q" maxlength="40" autocomplete="off" class="searchinput input-search search-input" type="text" size="20" placeholder="Tìm kiếm sản phẩm...">
+                            <input required id="inputSearchAuto" name="q" maxlength="40" autocomplete="off" class="searchinput input-search search-input" type="text" size="20" placeholder="Search products...">
                         </div>
                         <button type="submit" class="btn-search btn" id="search-header-btn">
-                            <svg version="1.1" class="svg search" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 27" style="enable-background:new 0 0 24 27;" xml:space="preserve"><path d="M10,2C4.5,2,0,6.5,0,12s4.5,10,10,10s10-4.5,10-10S15.5,2,10,2z M10,19c-3.9,0-7-3.1-7-7s3.1-7,7-7s7,3.1,7,7S13.9,19,10,19z"></path><rect x="17" y="17" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -9.2844 19.5856)" width="4" height="8"></rect></svg>
+                            <svg version="1.1" class="svg search" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 27" style="enable-background:new 0 0 24 27;" xml:space="preserve">
+                            <path d="M10,2C4.5,2,0,6.5,0,12s4.5,10,10,10s10-4.5,10-10S15.5,2,10,2z M10,19c-3.9,0-7-3.1-7-7s3.1-7,7-7s7,3.1,7,7S13.9,19,10,19z"></path>
+                            <rect x="17" y="17" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -9.2844 19.5856)" width="4" height="8"></rect>
+                        </svg>
                         </button>
                     </form>
                     <div id="ajaxSearchResults" class="smart-search-wrapper ajaxSearchResults" style="display: none">
@@ -172,10 +118,12 @@
                 </div>
             </div>
         </div>
-        <button id="site-close-handle" class="site-close-handle" aria-label="Đóng" title="Đóng">
-            <img src="//file.hstatic.net/1000360430/file/iconclose_32c1d6a3da3545278283605bbfca0b0b.png" alt="Đóng" />
+
+        <button id="site-close-handle" class="site-close-handle" aria-label="Close" title="Close">
+            <img src="//file.hstatic.net/1000360430/file/iconclose_32c1d6a3da3545278283605bbfca0b0b.png" alt="Close" />
         </button>
     </div>
+
     <div id="site-overlay" class="site-overlay"></div>
     <div id="quickview-cart" class="modal fade" role="dialog">
         <div id="quickview-cart-desktop" class="clearfix">
@@ -249,8 +197,9 @@
                 $('body,html').animate(
                     { scrollTop: 0 }, 800);
             });
-            vuongQuanTuan.countOrder();
+            vuongQuangTuan.countOrder();
         });
     </script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
